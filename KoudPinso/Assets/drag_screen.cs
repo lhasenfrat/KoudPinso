@@ -39,4 +39,5 @@ public class drag_screen : MonoBehaviour {
 		}
 
 	}
+
 }
