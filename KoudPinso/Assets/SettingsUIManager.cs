@@ -37,4 +37,10 @@ public class SettingsUIManager : MonoBehaviour
     {
         rectTransform.DOAnchorPosY(rectTransform.rect.height, 0.3f).SetDelay(delay);
     }
+
+    public void ShowHomeScreen()
+    {
+        Hide();
+        HomeUIManager.Instance.Show();
+    }
 }
