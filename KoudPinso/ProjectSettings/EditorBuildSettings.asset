@@ -18,12 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Dessin libre.unity
+    path: Assets/Scenes/DessinLibre.unity
     guid: 3d06349528d747943b3f07bfd743b43b
   - enabled: 1
-    path: Assets/Scenes/Galerie Perso.unity
+    path: Assets/Scenes/GaleriePerso.unity
     guid: 6307591488673834e99f8cfcd76daff1
   - enabled: 1
-    path: Assets/Scenes/Galerie Collab.unity
+    path: Assets/Scenes/GalerieCollab.unity
     guid: 71c4ba8b6d6cae14fa129798e7330105
   m_configObjects: {}
