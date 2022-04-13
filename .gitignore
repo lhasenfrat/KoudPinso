@@ -59,6 +59,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 KoudPinso\UserSettings\*
-KoudPinso/Assets/AffichageText.cs
 KoudPinso/UserSettings/EditorUserSettings.asset
 KoudPinso/UserSettings/AndroidLogcatSettings.asset
