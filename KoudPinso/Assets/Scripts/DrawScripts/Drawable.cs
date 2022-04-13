@@ -147,6 +147,19 @@ namespace FreeDraw
             // PenBrush is the NAME of the method we want to set as our current brush
             current_brush = PenBrush;
         }
+
+        public void changeColorToBlue()
+        {
+            Pen_Colour = Color.cyan;
+        }
+        public void changeColorToRed()
+        {
+            Pen_Colour = Color.magenta;
+        }
+        public void changeColorToYellow()
+        {
+            Pen_Colour = Color.yellow;
+        }
 //////////////////////////////////////////////////////////////////////////////
 
 
@@ -237,15 +250,25 @@ namespace FreeDraw
                 {
                     int x_rel = x - center_x;
                     int y_rel = y -center_y;
-                    
-                   if (x_rel*x_rel + y_rel*y_rel <= (pen_thickness)*(pen_thickness))
+                    float distanceToCenter =  Mathf.Sqrt(x_rel*x_rel + y_rel*y_rel);
+                   if (distanceToCenter <= (pen_thickness))
                     {
-                        MarkPixelToChange(x, y, color_of_pen);
+                        MarkPixelToChange(x, y, color_of_pen,distanceToCenter,pen_thickness);
                     }
                 }
             }
         }
-        public void MarkPixelToChange(int x, int y, Color color)
+        public static Color CombineColors(Color color1, Color color2)
+        {
+        Color result = new Color(Mathf.Min(color1.r ,color2.r ),Mathf.Min(color1.g, color2.g ),Mathf.Min(color1.b, color2.b ),255);
+        return result;
+        }
+        public static Color DiffuseColors(Color color1,float distanceToCenter,int pen_thickness)
+        {
+        Color result = new Color(color1.r,color1.g,color1.b,255-(distanceToCenter/pen_thickness)*255);
+        return result;
+        }
+        public void MarkPixelToChange(int x, int y, Color color,float distanceToCenter,int pen_thickness)
         {
             // Need to transform x and y coordinates to flat coordinates of array
             int array_pos = y * (int)drawable_sprite.rect.width + x;
@@ -253,8 +276,11 @@ namespace FreeDraw
             // Check if this is a valid position
             if (array_pos > cur_colors.Length || array_pos < 0)
                 return;
-
-            cur_colors[array_pos] = color;
+            if(cur_colors[array_pos].a!=0){
+                cur_colors[array_pos] =CombineColors(color,cur_colors[array_pos]);
+            } else {
+                cur_colors[array_pos] = DiffuseColors(color,distanceToCenter,pen_thickness);
+            }
         }
         public void ApplyMarkedPixelChanges()
         {

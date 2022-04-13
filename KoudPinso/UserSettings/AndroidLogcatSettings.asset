@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "mvwgp78hhu6x5l8h",
+    "m_SelectedDeviceId": "41a548b",
     "m_SelectedPackage": {
-        "deviceId": "mvwgp78hhu6x5l8h",
-        "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 19585,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,55 +11,37 @@
         {
             "deviceId": "41a548b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 30501,
+            "processId": 7353,
             "exited": true
         },
         {
             "deviceId": "41a548b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 22390,
-            "exited": false
-        },
-        {
-            "deviceId": "41a548b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 4282,
-            "exited": false
-        },
-        {
-            "deviceId": "41a548b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 6269,
-            "exited": false
-        },
-        {
-            "deviceId": "41a548b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 7353,
-            "exited": false
-        },
-        {
-            "deviceId": "41a548b",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 9542,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "41a548b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 11848,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "41a548b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 16621,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "41a548b",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 17382,
+            "exited": true
+        },
+        {
+            "deviceId": "41a548b",
+            "name": "com.miui.home",
+            "processId": 2728,
             "exited": false
         },
         {
