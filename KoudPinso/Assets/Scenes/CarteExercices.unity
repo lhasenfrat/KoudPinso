@@ -316,7 +316,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -792.65, y: -130.1}
+  m_AnchoredPosition: {x: -762, y: -124}
   m_SizeDelta: {x: 56.46, y: 54.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162017970
@@ -615,6 +615,7 @@ GameObject:
   - component: {fileID: 992908299}
   - component: {fileID: 992908298}
   - component: {fileID: 992908297}
+  - component: {fileID: 992908300}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -639,7 +640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 395, y: -162}
+  m_AnchoredPosition: {x: 264, y: -148}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992908297
@@ -685,7 +686,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 992908298}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 992908300}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: MoveToSceneStr
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: CarteMondes
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &992908298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,6 +737,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992908295}
   m_CullTransparentMesh: 1
+--- !u!114 &992908300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992908295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dedbf0db5f9be9b4691414fdb5c8f5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1019898402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +1076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

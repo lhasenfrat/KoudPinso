@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuPrincipal.unity
     guid: 167434d39b9d8c8498713d23ff096ed4
   - enabled: 1
-    path: Assets/Scenes/CarteMondeDesOmbres.unity
+    path: Assets/Scenes/CarteExercices.unity
     guid: fcbb411c051b8124190f35d62a7ee6c3
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChoixProfil.unity
     guid: 751717622d43f454bae942acefa93e95
+  - enabled: 1
+    path: Assets/Scenes/CarteMondes.unity
+    guid: d86f7bc59fd256c48a201ace2c20f767
   m_configObjects: {}
