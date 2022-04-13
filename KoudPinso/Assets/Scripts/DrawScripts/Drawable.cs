@@ -97,6 +97,7 @@ namespace FreeDraw
         // Default brush type. Has width and colour.
         // Pass in a point in WORLD coordinates
         // Changes the surrounding pixels of the world_point to the static pen_colour
+        //Le brush représente la texture, il ne prend pas en compte la couleur ou l'épaisseur
         public void PenBrush(Vector2 world_point)
         {
             Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
@@ -119,11 +120,28 @@ namespace FreeDraw
             previous_drag_position = pixel_pos;
         }
 
-
         // Helper method used by UI to set what brush the user wants
         // Create a new one for any new brushes you implement
         public void SetPenBrush()
         {
+            // PenBrush is the NAME of the method we want to set as our current brush
+            current_brush = PenBrush;
+        }
+
+        public void SetOutilToGomme()
+        {
+            Pen_Colour = new Color(0, 0, 0, 0);
+            Pen_Width = 10;
+
+            // PenBrush is the NAME of the method we want to set as our current brush
+            current_brush = PenBrush;
+        }
+
+        public void SetOutilToCrayon()
+        {
+            Pen_Colour = Color.red;
+            Pen_Width = 5;
+
             // PenBrush is the NAME of the method we want to set as our current brush
             current_brush = PenBrush;
         }
@@ -286,6 +304,7 @@ namespace FreeDraw
             drawable_texture.SetPixels(clean_colours_array);
             drawable_texture.Apply();
             Debug.Log(clean_colours_array);
+            SetOutilToCrayon();
 
         }
 
