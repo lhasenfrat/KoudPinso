@@ -12,28 +12,32 @@ public class ActionsExterieurs : MonoBehaviour
         hideQuitPanel();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
+    //Permet de revoir l'intro
     public void revoirIntro(){
         Debug.Log("Cinematique");
     }
 
+    //Permet d'effacer la zone de dessin
     public void reinitialiser(){
         Debug.Log("Effaçage");
     }
 
+    //Affiche la demande de confirmation de sortie
     public void showQuitPanel(){
         quitPanel.SetActive(true);
     }
 
+    //Ferme la demande de confirmation de sortie
     public void hideQuitPanel(){
         quitPanel.SetActive(false);
     }
 
+    //Quitte le canvas
     public void quitter(){
         Debug.Log("Je quitte !");
     }
