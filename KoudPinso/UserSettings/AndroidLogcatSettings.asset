@@ -1,41 +1,47 @@
 {
-    "m_SelectedDeviceId": "R58R73RVX6D",
+    "m_SelectedDeviceId": "XPH0220813006173",
     "m_SelectedPackage": {
-        "deviceId": "R58R73RVX6D",
+        "deviceId": "XPH0220813006173",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 19392,
+        "processId": 8722,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
-            "deviceId": "R58R73RVX6D",
+            "deviceId": "XPH0220813006173",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 14851,
+            "processId": 12007,
             "exited": false
         },
         {
-            "deviceId": "R58R73RVX6D",
+            "deviceId": "XPH0220813006173",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 16300,
+            "processId": 16014,
             "exited": false
         },
         {
-            "deviceId": "R58R73RVX6D",
+            "deviceId": "XPH0220813006173",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 18270,
+            "processId": 1390,
             "exited": false
         },
         {
-            "deviceId": "R58R73RVX6D",
+            "deviceId": "XPH0220813006173",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 18874,
+            "processId": 7029,
             "exited": false
         },
         {
-            "deviceId": "R58R73RVX6D",
+            "deviceId": "XPH0220813006173",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 19392,
+            "processId": 7843,
+            "exited": false
+        },
+        {
+            "deviceId": "XPH0220813006173",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 8722,
             "exited": false
         }
     ],
