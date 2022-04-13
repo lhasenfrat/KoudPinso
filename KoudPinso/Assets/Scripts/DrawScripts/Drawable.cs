@@ -240,18 +240,18 @@ namespace FreeDraw
             int center_y = (int)center_pixel.y;
             //int extra_radius = Mathf.Min(0, pen_thickness - 2);
 
-            for (int x = center_x - pen_thickness ; x <= center_x + pen_thickness; x++)
+            for (int x = center_x - 2*pen_thickness ; x <= center_x + 2*pen_thickness; x++)
             {
                 // Check if the X wraps around the image, so we don't draw pixels on the other side of the image
                 if (x >= (int)drawable_sprite.rect.width || x < 0)
                     continue;
 
-                for (int y = center_y - pen_thickness; y <= center_y + pen_thickness; y++)
+                for (int y = center_y - 2*pen_thickness; y <= center_y + 2*pen_thickness; y++)
                 {
                     int x_rel = x - center_x;
                     int y_rel = y -center_y;
                     float distanceToCenter =  Mathf.Sqrt(x_rel*x_rel + y_rel*y_rel);
-                   if (distanceToCenter <= (pen_thickness))
+                   if (distanceToCenter <= (2*pen_thickness))
                     {
                         MarkPixelToChange(x, y, color_of_pen,distanceToCenter,pen_thickness);
                     }
@@ -263,10 +263,18 @@ namespace FreeDraw
         Color result = new Color(Mathf.Min(color1.r ,color2.r ),Mathf.Min(color1.g, color2.g ),Mathf.Min(color1.b, color2.b ),255);
         return result;
         }
-        public static Color DiffuseColors(Color color1,float distanceToCenter,int pen_thickness)
+        public static Color DiffuseColors(Color color1,Color color2,float distanceToCenter,int pen_thickness)
         {
-        Color result = new Color(color1.r,color1.g,color1.b,255-(distanceToCenter/pen_thickness)*255);
-        return result;
+            Color result;
+            if(distanceToCenter<pen_thickness){
+                result = new Color(Mathf.Min(color1.r ,color2.r ),Mathf.Min(color1.g, color2.g ),Mathf.Min(color1.b, color2.b ),1);
+            } else {
+                result = new Color(Mathf.Min(color1.r ,color2.r ),Mathf.Min(color1.g, color2.g ),Mathf.Min(color1.b, color2.b ),Mathf.Max(2-distanceToCenter/pen_thickness,color2.a));
+
+            }
+            
+            
+            return result;
         }
         public void MarkPixelToChange(int x, int y, Color color,float distanceToCenter,int pen_thickness)
         {
@@ -276,10 +284,11 @@ namespace FreeDraw
             // Check if this is a valid position
             if (array_pos > cur_colors.Length || array_pos < 0)
                 return;
-            if(cur_colors[array_pos].a!=0){
+
+            if(cur_colors[array_pos].a!=0 && distanceToCenter<pen_thickness){
                 cur_colors[array_pos] =CombineColors(color,cur_colors[array_pos]);
             } else {
-                cur_colors[array_pos] = DiffuseColors(color,distanceToCenter,pen_thickness);
+                cur_colors[array_pos] = DiffuseColors(color,cur_colors[array_pos],distanceToCenter,pen_thickness);
             }
         }
         public void ApplyMarkedPixelChanges()
