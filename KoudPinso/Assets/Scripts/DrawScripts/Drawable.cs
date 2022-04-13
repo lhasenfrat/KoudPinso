@@ -263,13 +263,13 @@ namespace FreeDraw
         Color result = new Color(Mathf.Min(color1.r ,color2.r ),Mathf.Min(color1.g, color2.g ),Mathf.Min(color1.b, color2.b ),255);
         return result;
         }
-        public static Color DiffuseColors(Color color1,Color color2,float distanceToCenter,int pen_thickness)
+        public static Color AntiAliasing(Color color1,Color color2,float distanceToCenter,int pen_thickness)
         {
             Color result;
             if(distanceToCenter<pen_thickness){
-                result = new Color(Mathf.Min(color1.r ,color2.r ),Mathf.Min(color1.g, color2.g ),Mathf.Min(color1.b, color2.b ),1);
+                result = color1;
             } else {
-                result = new Color(Mathf.Min(color1.r ,color2.r ),Mathf.Min(color1.g, color2.g ),Mathf.Min(color1.b, color2.b ),Mathf.Max(2-distanceToCenter/pen_thickness,color2.a));
+                result = new Color(color1.r,color1.g,color1.b,Mathf.Max(2-distanceToCenter/pen_thickness,color2.a));
 
             }
             
@@ -285,11 +285,9 @@ namespace FreeDraw
             if (array_pos > cur_colors.Length || array_pos < 0)
                 return;
 
-            if(cur_colors[array_pos].a!=0 && distanceToCenter<pen_thickness){
-                cur_colors[array_pos] =CombineColors(color,cur_colors[array_pos]);
-            } else {
-                cur_colors[array_pos] = DiffuseColors(color,cur_colors[array_pos],distanceToCenter,pen_thickness);
-            }
+            
+            cur_colors[array_pos] = AntiAliasing(color,cur_colors[array_pos],distanceToCenter,pen_thickness);
+            
         }
         public void ApplyMarkedPixelChanges()
         {
