@@ -5,10 +5,11 @@ using UnityEngine;
 public class ActionsExterieurs : MonoBehaviour
 {
     
+    public GameObject quitPanel;
 
     void Start()
     {
-        
+        hideQuitPanel();
     }
 
     // Update is called once per frame
@@ -25,7 +26,17 @@ public class ActionsExterieurs : MonoBehaviour
         Debug.Log("Effaçage");
     }
 
-    public void quitter(){
-        Debug.Log("Quittage");
+    public void showQuitPanel(){
+        quitPanel.SetActive(true);
     }
+
+    public void hideQuitPanel(){
+        quitPanel.SetActive(false);
+    }
+
+    public void quitter(){
+        Debug.Log("Je quitte !");
+    }
+
+    
 }
