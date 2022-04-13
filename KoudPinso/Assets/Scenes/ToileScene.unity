@@ -272,7 +272,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Load
+  m_Text: 'Charger
 
 '
 --- !u!222 &273599979
@@ -621,6 +621,8 @@ RectTransform:
   - {fileID: 1770161130}
   - {fileID: 276801676}
   - {fileID: 905434023}
+  - {fileID: 875953786}
+  - {fileID: 1897686708}
   - {fileID: 1309138093}
   - {fileID: 1459657757}
   - {fileID: 1237885348}
@@ -663,8 +665,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1927365742}
-  - {fileID: 875953786}
-  - {fileID: 1897686708}
   - {fileID: 1768614699}
   - {fileID: 968088246}
   m_Father: {fileID: 979148939}
@@ -795,7 +795,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Save
+  m_Text: Sauvegarder
 --- !u!222 &510222100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1385,12 +1385,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 510222098}
-  m_Father: {fileID: 348711593}
-  m_RootOrder: 1
+  m_Father: {fileID: 320125645}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 85, y: 25}
+  m_AnchoredPosition: {x: 90, y: 30}
   m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875953787
@@ -1677,7 +1677,7 @@ RectTransform:
   m_Children:
   - {fileID: 657552892}
   m_Father: {fileID: 348711593}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -2190,7 +2190,7 @@ RectTransform:
   m_Children:
   - {fileID: 652134899}
   m_Father: {fileID: 320125645}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -2308,7 +2308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1305267195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2399,7 +2399,7 @@ RectTransform:
   m_Children:
   - {fileID: 162677665}
   m_Father: {fileID: 320125645}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -2711,7 +2711,7 @@ RectTransform:
   m_Children:
   - {fileID: 947052985}
   m_Father: {fileID: 320125645}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -3273,7 +3273,7 @@ RectTransform:
   m_Children:
   - {fileID: 724852578}
   m_Father: {fileID: 348711593}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3484,12 +3484,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 273599977}
-  m_Father: {fileID: 348711593}
-  m_RootOrder: 2
+  m_Father: {fileID: 320125645}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -85, y: 25}
+  m_AnchoredPosition: {x: -90, y: 30}
   m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1897686709
@@ -3539,6 +3539,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1194095521}
         m_TargetAssemblyTypeName: FreeDraw.Drawable, Assembly-CSharp
         m_MethodName: LoadCanvas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 320125640}
+        m_TargetAssemblyTypeName: SettingsUIManager, Assembly-CSharp
+        m_MethodName: ShowHomeScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
