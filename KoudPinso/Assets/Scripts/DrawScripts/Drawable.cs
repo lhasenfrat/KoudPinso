@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.IO;
 
 namespace FreeDraw
 {
@@ -16,6 +17,7 @@ namespace FreeDraw
         public static Color Pen_Colour = Color.red;     // Change these to change the default drawing settings
         // PEN WIDTH (actually, it's a radius, in pixels)
         public static int Pen_Width = 3;
+        public string Path;
 
 
         public delegate void Brush_Function(Vector2 world_position);
@@ -303,14 +305,23 @@ namespace FreeDraw
         {
             drawable_texture.SetPixels(clean_colours_array);
             drawable_texture.Apply();
-            Debug.Log(clean_colours_array);
             SetOutilToCrayon();
-
         }
 
         public void SaveCanvas()
         {
-            
+            byte[] bytes = drawable_texture.EncodeToPNG();
+            File.WriteAllBytes(Path, bytes);
+
+        }
+
+        public void LoadCanvas()
+        {
+            if (File.Exists(Path)){
+                byte[] fileData = File.ReadAllBytes(Path);
+                drawable_texture.LoadImage(fileData); //..this will auto-resize the texture dimensions.
+            }
+
         }
         
         void Awake()
@@ -318,7 +329,7 @@ namespace FreeDraw
             drawable = this;
             // DEFAULT BRUSH SET HERE
             current_brush = PenBrush;
-
+            Path=Application.persistentDataPath + "/../test.png";
             drawable_sprite = this.GetComponent<SpriteRenderer>().sprite;
             drawable_texture = drawable_sprite.texture;
 
