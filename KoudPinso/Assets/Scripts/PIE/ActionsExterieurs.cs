@@ -5,11 +5,11 @@ using UnityEngine;
 public class ActionsExterieurs : MonoBehaviour
 {
     
-    public GameObject quitPanel;
+    public GameObject panel;
 
     void Start()
     {
-        hideQuitPanel();
+        hidePanel();
     }
 
     void Update()
@@ -28,18 +28,39 @@ public class ActionsExterieurs : MonoBehaviour
     }
 
     //Affiche la demande de confirmation de sortie
-    public void showQuitPanel(){
-        quitPanel.SetActive(true);
+    public void showPanel(){
+        if(!panel.activeSelf)
+        {
+            panel.SetActive(true);
+        }
+     
     }
 
     //Ferme la demande de confirmation de sortie
-    public void hideQuitPanel(){
-        quitPanel.SetActive(false);
+    public void hidePanel(){
+        if(panel.activeSelf)
+        {
+            Debug.Log("je désactive");
+            panel.SetActive(false);
+        }
+     
     }
 
     //Quitte le canvas
     public void quitter(){
         Debug.Log("Je quitte !");
+    }
+
+    //Ferme et ouvre au clic sur le meme bouton
+    public void showHidePanel(){
+        if(panel.activeSelf)
+        {
+            panel.SetActive(false);
+        }else 
+        {
+            panel.SetActive(true);
+        }
+     
     }
 
     
