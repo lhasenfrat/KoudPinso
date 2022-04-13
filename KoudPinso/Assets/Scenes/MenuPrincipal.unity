@@ -228,7 +228,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: SampleScene
+          m_StringArgument: MesAmis
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &231259304
@@ -1132,7 +1132,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Accueil
+          m_StringArgument: ChoixProfil
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &979706605
