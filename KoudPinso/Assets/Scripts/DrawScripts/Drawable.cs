@@ -227,7 +227,7 @@ namespace FreeDraw
             int center_y = (int)center_pixel.y;
             //int extra_radius = Mathf.Min(0, pen_thickness - 2);
 
-            for (int x = center_x - pen_thickness; x <= center_x + pen_thickness; x++)
+            for (int x = center_x - pen_thickness ; x <= center_x + pen_thickness; x++)
             {
                 // Check if the X wraps around the image, so we don't draw pixels on the other side of the image
                 if (x >= (int)drawable_sprite.rect.width || x < 0)
@@ -235,7 +235,13 @@ namespace FreeDraw
 
                 for (int y = center_y - pen_thickness; y <= center_y + pen_thickness; y++)
                 {
-                    MarkPixelToChange(x, y, color_of_pen);
+                    int x_rel = x - center_x;
+                    int y_rel = y -center_y;
+                    
+                   if (x_rel*x_rel + y_rel*y_rel <= (pen_thickness)*(pen_thickness))
+                    {
+                        MarkPixelToChange(x, y, color_of_pen);
+                    }
                 }
             }
         }
