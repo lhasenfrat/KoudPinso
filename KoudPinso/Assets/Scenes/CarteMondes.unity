@@ -321,8 +321,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -121.004944, y: 90}
-  m_SizeDelta: {x: 58.99, y: 57.72}
+  m_AnchoredPosition: {x: -144.95, y: 94.1}
+  m_SizeDelta: {x: 101.68, y: 86.69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &653294416
 MonoBehaviour:
@@ -508,8 +508,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -726.005, y: 19}
-  m_SizeDelta: {x: 58.99, y: 57.72}
+  m_AnchoredPosition: {x: -699, y: 24}
+  m_SizeDelta: {x: 107.77, y: 88.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1062589074
 MonoBehaviour:
@@ -788,8 +788,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -396.50998, y: -61}
-  m_SizeDelta: {x: 58.99, y: 57.72}
+  m_AnchoredPosition: {x: -413, y: -69}
+  m_SizeDelta: {x: 101.67, y: 83.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371174911
 MonoBehaviour:
@@ -943,7 +943,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: Monde des Ombres
 --- !u!222 &1677234100
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1022,7 +1022,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: Monde de la perspective
 --- !u!222 &1695897767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1101,7 +1101,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: Monde des Couleurs
 --- !u!222 &1725904271
 CanvasRenderer:
   m_ObjectHideFlags: 0
