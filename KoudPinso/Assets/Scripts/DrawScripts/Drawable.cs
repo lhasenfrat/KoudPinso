@@ -262,8 +262,8 @@ namespace FreeDraw
         public Vector2 WorldToPixelCoordinates(Vector2 world_position)
         {
             // Change coordinates to local coordinates of this image
-            Vector3 local_pos = transform.InverseTransformPoint(world_position);
-
+            //Vector3 local_pos = transform.InverseTransformPoint(world_position);
+            Vector3 local_pos = new Vector3(world_position.x,world_position.y,0);
             // Change these to coordinates of pixels
             float pixelWidth = drawable_sprite.rect.width;
             float pixelHeight = drawable_sprite.rect.height;
@@ -285,9 +285,14 @@ namespace FreeDraw
         {
             drawable_texture.SetPixels(clean_colours_array);
             drawable_texture.Apply();
+            Debug.Log(clean_colours_array);
+
         }
 
-
+        public void SaveCanvas()
+        {
+            
+        }
         
         void Awake()
         {
@@ -302,7 +307,6 @@ namespace FreeDraw
             clean_colours_array = new Color[(int)drawable_sprite.rect.width * (int)drawable_sprite.rect.height];
             for (int x = 0; x < clean_colours_array.Length; x++)
                 clean_colours_array[x] = Reset_Colour;
-
             // Should we reset our canvas image when we hit play in the editor?
             if (Reset_Canvas_On_Play)
                 ResetCanvas();
