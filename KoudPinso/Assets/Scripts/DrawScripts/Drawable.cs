@@ -202,10 +202,7 @@ namespace FreeDraw
         {
             // Get the distance from start to finish
             float distance = Vector2.Distance(start_point, end_point);
-            if (distance > 50*Pen_Width)
-            {
-                return;
-            }
+
             Vector2 direction = (start_point - end_point).normalized;
 
             Vector2 cur_position = start_point;
