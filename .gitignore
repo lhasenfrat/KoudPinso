@@ -9,6 +9,8 @@
 [Bb]uilds/
 [Ll]ogs/
 [Mm]emoryCaptures/
+[Uu]ser[Ss]ettings/
+[Rr]ecordings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -53,11 +55,17 @@ sysinfo.txt
 
 # Builds
 *.apk
+*.aab
+*.app
 *.unitypackage
 
 # Crashlytics generated file
 crashlytics-build.properties
 
-KoudPinso\UserSettings\*
-KoudPinso/UserSettings/EditorUserSettings.asset
-KoudPinso/UserSettings/AndroidLogcatSettings.asset
+
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Temporary auto-generated Android Assets
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
