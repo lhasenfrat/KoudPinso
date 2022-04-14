@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 29842490}
   - component: {fileID: 29842489}
   - component: {fileID: 29842488}
-  - component: {fileID: 29842491}
   m_Layer: 5
   m_Name: JauneButton
   m_TagString: Untagged
@@ -207,7 +206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 29842491}
+      - m_Target: {fileID: 1595884424}
         m_TargetAssemblyTypeName: ActionsExterieurs, Assembly-CSharp
         m_MethodName: hidePanel
         m_Mode: 1
@@ -257,19 +256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29842486}
   m_CullTransparentMesh: 1
---- !u!114 &29842491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 29842486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c83879b5c6580d4092105b0bc741fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 2063835212}
 --- !u!1 &135652744
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +268,6 @@ GameObject:
   - component: {fileID: 135652748}
   - component: {fileID: 135652747}
   - component: {fileID: 135652746}
-  - component: {fileID: 135652749}
   m_Layer: 5
   m_Name: BlancButton
   m_TagString: Untagged
@@ -354,7 +339,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 135652749}
+      - m_Target: {fileID: 1595884424}
         m_TargetAssemblyTypeName: ActionsExterieurs, Assembly-CSharp
         m_MethodName: hidePanel
         m_Mode: 1
@@ -404,19 +389,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135652744}
   m_CullTransparentMesh: 1
---- !u!114 &135652749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135652744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c83879b5c6580d4092105b0bc741fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 2063835212}
 --- !u!1 &162677664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1083,6 @@ GameObject:
   - component: {fileID: 367020589}
   - component: {fileID: 367020588}
   - component: {fileID: 367020587}
-  - component: {fileID: 367020590}
   m_Layer: 5
   m_Name: NoirButton
   m_TagString: Untagged
@@ -1183,7 +1154,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 367020590}
+      - m_Target: {fileID: 1595884424}
         m_TargetAssemblyTypeName: ActionsExterieurs, Assembly-CSharp
         m_MethodName: hidePanel
         m_Mode: 1
@@ -1233,19 +1204,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367020585}
   m_CullTransparentMesh: 1
---- !u!114 &367020590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367020585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c83879b5c6580d4092105b0bc741fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 2063835212}
 --- !u!1 &510222097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1374,6 @@ GameObject:
   - component: {fileID: 543993820}
   - component: {fileID: 543993819}
   - component: {fileID: 543993818}
-  - component: {fileID: 543993821}
   m_Layer: 5
   m_Name: RougeButton
   m_TagString: Untagged
@@ -1488,7 +1445,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 543993821}
+      - m_Target: {fileID: 1595884424}
         m_TargetAssemblyTypeName: ActionsExterieurs, Assembly-CSharp
         m_MethodName: hidePanel
         m_Mode: 1
@@ -1538,19 +1495,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543993816}
   m_CullTransparentMesh: 1
---- !u!114 &543993821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 543993816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c83879b5c6580d4092105b0bc741fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 2063835212}
 --- !u!1 &558775599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,7 +1586,6 @@ GameObject:
   - component: {fileID: 564590962}
   - component: {fileID: 564590961}
   - component: {fileID: 564590960}
-  - component: {fileID: 564590963}
   m_Layer: 5
   m_Name: VertButton
   m_TagString: Untagged
@@ -1714,7 +1657,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 564590963}
+      - m_Target: {fileID: 1595884424}
         m_TargetAssemblyTypeName: ActionsExterieurs, Assembly-CSharp
         m_MethodName: hidePanel
         m_Mode: 1
@@ -1764,19 +1707,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564590958}
   m_CullTransparentMesh: 1
---- !u!114 &564590963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564590958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c83879b5c6580d4092105b0bc741fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 2063835212}
 --- !u!1 &602717882
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,7 +3032,6 @@ GameObject:
   - component: {fileID: 983150420}
   - component: {fileID: 983150419}
   - component: {fileID: 983150418}
-  - component: {fileID: 983150421}
   m_Layer: 5
   m_Name: VioletButton
   m_TagString: Untagged
@@ -3174,7 +3103,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 983150421}
+      - m_Target: {fileID: 1595884424}
         m_TargetAssemblyTypeName: ActionsExterieurs, Assembly-CSharp
         m_MethodName: hidePanel
         m_Mode: 1
@@ -3224,19 +3153,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983150416}
   m_CullTransparentMesh: 1
---- !u!114 &983150421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983150416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c83879b5c6580d4092105b0bc741fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 2063835212}
 --- !u!1 &1000939504
 GameObject:
   m_ObjectHideFlags: 0
@@ -4269,7 +4185,6 @@ GameObject:
   - component: {fileID: 1335047513}
   - component: {fileID: 1335047512}
   - component: {fileID: 1335047511}
-  - component: {fileID: 1335047514}
   m_Layer: 5
   m_Name: BleuButton
   m_TagString: Untagged
@@ -4341,7 +4256,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1335047514}
+      - m_Target: {fileID: 1595884424}
         m_TargetAssemblyTypeName: ActionsExterieurs, Assembly-CSharp
         m_MethodName: hidePanel
         m_Mode: 1
@@ -4391,19 +4306,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335047509}
   m_CullTransparentMesh: 1
---- !u!114 &1335047514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335047509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c83879b5c6580d4092105b0bc741fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 2063835212}
 --- !u!1 &1352409279
 GameObject:
   m_ObjectHideFlags: 0
@@ -5292,7 +5194,6 @@ GameObject:
   - component: {fileID: 1617163799}
   - component: {fileID: 1617163798}
   - component: {fileID: 1617163797}
-  - component: {fileID: 1617163800}
   m_Layer: 5
   m_Name: OrangeButton
   m_TagString: Untagged
@@ -5364,7 +5265,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1617163800}
+      - m_Target: {fileID: 1595884424}
         m_TargetAssemblyTypeName: ActionsExterieurs, Assembly-CSharp
         m_MethodName: hidePanel
         m_Mode: 1
@@ -5414,19 +5315,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617163795}
   m_CullTransparentMesh: 1
---- !u!114 &1617163800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617163795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c83879b5c6580d4092105b0bc741fec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 2063835212}
 --- !u!1 &1642415795
 GameObject:
   m_ObjectHideFlags: 0
