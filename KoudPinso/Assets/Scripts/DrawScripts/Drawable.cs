@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.IO;
+using System.Collections.Generic;
 
 namespace FreeDraw
 {
@@ -94,6 +95,17 @@ namespace FreeDraw
         }
 
 
+        public void Bucket(Vector2 world_position)
+        {
+            // 1. Change world position to pixel coordinates
+            Vector2 pixel_pos = WorldToPixelCoordinates(world_position);
+
+            // 2. Make sure our variable for pixel array is updated in this frame
+            cur_colors = drawable_texture.GetPixels32();
+            flood_fill(pixel_pos);
+            ApplyMarkedPixelChanges();
+            
+        }
 
         
         // Default brush type. Has width and colour.
@@ -146,6 +158,12 @@ namespace FreeDraw
 
             // PenBrush is the NAME of the method we want to set as our current brush
             current_brush = PenBrush;
+        }
+
+        public void SetOutilToBucket()
+        {
+
+            current_brush = Bucket;
         }
 
         public void changeColorToBlue()
@@ -276,6 +294,42 @@ namespace FreeDraw
             
             return result;
         }
+
+        
+        public void flood_fill(Vector2 mypoint)
+        {
+            int x = (int) mypoint.x;
+            int y=(int) mypoint.y;
+            int array_pos = y * (int)drawable_sprite.rect.width + x;
+            if (array_pos > cur_colors.Length || array_pos < 0)
+                return;
+            Color oldcolor=cur_colors[array_pos];
+            if (oldcolor==Pen_Colour)
+                return;
+            Queue<KeyValuePair<int,int>> myqueue = new Queue<KeyValuePair<int, int>>();
+            myqueue.Enqueue(new KeyValuePair<int, int>(x,y));
+            while ((myqueue.Count != 0))
+            {   
+
+                KeyValuePair<int,int> currentvalue=myqueue.Dequeue();
+                x=currentvalue.Key;
+                y=currentvalue.Value;
+                array_pos = y * (int)drawable_sprite.rect.width + x;
+
+                if (array_pos >= cur_colors.Length || array_pos < 0 || (cur_colors[array_pos]!=oldcolor && cur_colors[array_pos].a==255 ))
+                    continue;
+                else {
+                    cur_colors[array_pos]=new Color(Pen_Colour.r,Pen_Colour.g,Pen_Colour.b,1);
+                    myqueue.Enqueue(new KeyValuePair<int, int>(x+1,y));
+                    myqueue.Enqueue(new KeyValuePair<int, int>(x-1,y));
+                    myqueue.Enqueue(new KeyValuePair<int, int>(x,y+1));
+                    myqueue.Enqueue(new KeyValuePair<int, int>(x,y-1));
+
+                }
+            }
+
+            
+        }
         public void MarkPixelToChange(int x, int y, Color color,float distanceToCenter,int pen_thickness)
         {
             // Need to transform x and y coordinates to flat coordinates of array
@@ -285,8 +339,10 @@ namespace FreeDraw
             if (array_pos > cur_colors.Length || array_pos < 0)
                 return;
 
-            
-            cur_colors[array_pos] = AntiAliasing(color,cur_colors[array_pos],distanceToCenter,pen_thickness);
+            if(color.a!=0)
+                cur_colors[array_pos] = AntiAliasing(color,cur_colors[array_pos],distanceToCenter,pen_thickness);
+            else 
+                cur_colors[array_pos] = color;
             
         }
         public void ApplyMarkedPixelChanges()
