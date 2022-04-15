@@ -206,34 +206,91 @@ using System.Collections.Generic;
         public void changeColorToBlue()
         {
             Pen_Colour = Color.blue;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
+                
         }
         public void changeColorToRed()
         {
             Pen_Colour = Color.red;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToYellow()
         {
             Pen_Colour = Color.yellow;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToOrange()
         {
             Pen_Colour = new Color(249f/255,101f/255,21f/255,1);
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToVert()
         {
             Pen_Colour = Color.green;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToViolet()
         {
             Pen_Colour = new Color(199f/255,36f/255,177f/255,1);
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToNoir()
         {
             Pen_Colour = Color.black;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToCyan()
         {
             Pen_Colour = Color.cyan;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
 //////////////////////////////////////////////////////////////////////////////
 
