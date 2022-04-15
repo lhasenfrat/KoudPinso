@@ -325,13 +325,17 @@ using System.Collections.Generic;
                 if (array_pos >= cur_colors.Length || array_pos < 0 || (cur_colors[array_pos]!=oldcolor && cur_colors[array_pos].a==255 ))
                     continue;
                 else {
-                    cur_colors[array_pos]=new Color(Pen_Colour.r,Pen_Colour.g,Pen_Colour.b,1);
+                    
+                    cur_colors[array_pos] = new Color(Pen_Colour.r,Pen_Colour.g,Pen_Colour.b,1);
                     myqueue.Enqueue(new KeyValuePair<int, int>(x+1,y));
                     myqueue.Enqueue(new KeyValuePair<int, int>(x-1,y));
                     myqueue.Enqueue(new KeyValuePair<int, int>(x,y+1));
                     myqueue.Enqueue(new KeyValuePair<int, int>(x,y-1));
 
                 }
+                //TODO crash handler un peu trop systeme D
+                if (myqueue.Count>10000)
+                    break;
             }
 
             
@@ -347,7 +351,7 @@ using System.Collections.Generic;
             Vector2 cur_position = start_point;
 
             // Calculate how many times we should interpolate between start_point and end_point based on the amount of time that has passed since the last update
-            float lerp_steps = 1 / distance;
+            float lerp_steps = (Pen_Width*0.7f) / distance;
 
             for (float lerp = 0; lerp <= 1; lerp += lerp_steps)
             {
@@ -501,7 +505,7 @@ using System.Collections.Generic;
         {
             drawable_texture.SetPixels(clean_colours_array);
             drawable_texture.Apply();
-            SetOutilToCrayon();
+            SetOutilToMarqueur();
         }
 
         public void SaveCanvas()
