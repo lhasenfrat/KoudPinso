@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
         float spread;
 
-        
+        public GameObject slidingPanel;
         public GameObject outilPanel;
         public GameObject couleurPanel;
         public GameObject gommePanel;
@@ -52,7 +52,7 @@ using System.Collections.Generic;
         bool mouse_was_previously_held_down = false;
         bool no_drawing_on_current_drag = false;
         bool allowedDrawing = true; //true si le dessin est autorise, false sinon
-        bool openedPanel = false;
+        //bool openedPanel = false;
 
 
 
@@ -286,7 +286,7 @@ using System.Collections.Generic;
         
         public void AllowDisallowDrawing()
         {
-                allowedDrawing =  !allowedDrawing;
+               allowedDrawing =  !allowedDrawing;
 
         }
 
@@ -506,6 +506,7 @@ using System.Collections.Generic;
             drawable_texture.SetPixels(clean_colours_array);
             drawable_texture.Apply();
             SetOutilToMarqueur();
+            AllowDisallowDrawing();
         }
 
         public void SaveCanvas()
@@ -538,7 +539,10 @@ using System.Collections.Generic;
             for (int x = 0; x < clean_colours_array.Length; x++)
                 clean_colours_array[x] = Reset_Colour;
             // Should we reset our canvas image when we hit play in the editor?
-            if (Reset_Canvas_On_Play)
+            if (Reset_Canvas_On_Play) {
                 ResetCanvas();
+                AllowDisallowDrawing();
+            }
+                
         }
     }
