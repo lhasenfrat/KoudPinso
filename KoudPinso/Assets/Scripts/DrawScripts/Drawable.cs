@@ -19,6 +19,11 @@ namespace FreeDraw
         public static int Pen_Width = 3;
         public string Path;
 
+        public GameObject outilPanel;
+        public GameObject couleurPanel;
+        public GameObject gommePanel;
+        
+
 
         public delegate void Brush_Function(Vector2 world_position);
         // This is the function called when a left click happens
@@ -44,6 +49,8 @@ namespace FreeDraw
         Color32[] cur_colors;
         bool mouse_was_previously_held_down = false;
         bool no_drawing_on_current_drag = false;
+        bool allowedDrawing = true; //true si le dessin est autorise, false sinon
+        bool openedPanel = false;
 
 
 
@@ -160,7 +167,7 @@ namespace FreeDraw
         {
             // Is the user holding down the left mouse button?
             bool mouse_held_down = Input.GetMouseButton(0);
-            if (mouse_held_down && !no_drawing_on_current_drag)
+            if (mouse_held_down && !no_drawing_on_current_drag && allowedDrawing)
             {
                 // Convert mouse coordinates to world coordinates
                 Vector2 mouse_world_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -195,6 +202,23 @@ namespace FreeDraw
             mouse_was_previously_held_down = mouse_held_down;
         }
 
+        public void AllowDisallowDrawing()
+        {
+                allowedDrawing =  !allowedDrawing;
+
+        }
+
+        public void AllowDisallowDrawingPetitPanel()
+        {
+               if(outilPanel.activeSelf || couleurPanel.activeSelf || gommePanel.activeSelf)
+               {
+                   allowedDrawing = false;
+               }else
+               {
+                   allowedDrawing = true;
+               }
+
+        }
 
 
         // Set the colour of pixels in a straight line from start_point all the way to end_point, to ensure everything inbetween is coloured
@@ -349,4 +373,6 @@ namespace FreeDraw
                 ResetCanvas();
         }
     }
+
+
 }
