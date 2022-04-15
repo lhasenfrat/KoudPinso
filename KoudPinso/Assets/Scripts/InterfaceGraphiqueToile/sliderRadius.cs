@@ -9,6 +9,7 @@ public class sliderRadius : MonoBehaviour
 
     public GameObject slider;
     public GameObject circle;
+    public Drawable myScript;
     float EpaisseurSlider;
     public float defaultRadius;
     RectTransform rectTransform;
@@ -29,9 +30,9 @@ public class sliderRadius : MonoBehaviour
 
     public void OnValueChanged(float newValue)
     {
-        Debug.Log(newValue);
         rectTransform = circle.GetComponent<RectTransform>();
         Vector3 newSize = new Vector3 (newValue*defaultRadius, newValue*defaultRadius,0 );
         rectTransform.DOScale(newSize, 0f);
+        myScript.SetThickness(newValue); 
     }
 }

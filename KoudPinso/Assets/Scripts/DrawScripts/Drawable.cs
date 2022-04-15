@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.IO;
+using System.Collections.Generic;
 
-namespace FreeDraw
-{
+
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(Collider2D))]  // REQUIRES A COLLIDER2D to function
     // 1. Attach this to a read/write enabled sprite image
@@ -19,10 +19,7 @@ namespace FreeDraw
         public static int Pen_Width = 3;
         public string Path;
 
-        public GameObject outilPanel;
-        public GameObject couleurPanel;
-        public GameObject gommePanel;
-        
+        float spread;
 
 
         public delegate void Brush_Function(Vector2 world_position);
@@ -49,8 +46,6 @@ namespace FreeDraw
         Color32[] cur_colors;
         bool mouse_was_previously_held_down = false;
         bool no_drawing_on_current_drag = false;
-        bool allowedDrawing = true; //true si le dessin est autorise, false sinon
-        bool openedPanel = false;
 
 
 
@@ -101,18 +96,24 @@ namespace FreeDraw
         }
 
 
+        public void Bucket(Vector2 world_position)
+        {
+            // 1. Change world position to pixel coordinates
+            Vector2 pixel_pos = WorldToPixelCoordinates(world_position);
 
-        
-        // Default brush type. Has width and colour.
-        // Pass in a point in WORLD coordinates
-        // Changes the surrounding pixels of the world_point to the static pen_colour
-        //Le brush représente la texture, il ne prend pas en compte la couleur ou l'épaisseur
+            // 2. Make sure our variable for pixel array is updated in this frame
+            cur_colors = drawable_texture.GetPixels32();
+            flood_fill(pixel_pos);
+            ApplyMarkedPixelChanges();
+            
+        }
+
         public void PenBrush(Vector2 world_point)
         {
             Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
 
             cur_colors = drawable_texture.GetPixels32();
-
+            spread = 1;
             if (previous_drag_position == Vector2.zero)
             {
                 // If this is the first time we've ever dragged on this image, simply colour the pixels at our mouse position
@@ -128,31 +129,104 @@ namespace FreeDraw
             //Debug.Log("Dimensions: " + pixelWidth + "," + pixelHeight + ". Units to pixels: " + unitsToPixels + ". Pixel pos: " + pixel_pos);
             previous_drag_position = pixel_pos;
         }
-
-        // Helper method used by UI to set what brush the user wants
-        // Create a new one for any new brushes you implement
-        public void SetPenBrush()
+    
+        public void Gomme(Vector2 world_point)
         {
-            // PenBrush is the NAME of the method we want to set as our current brush
-            current_brush = PenBrush;
+            Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
+            spread = 1;
+            cur_colors = drawable_texture.GetPixels32();
+            Color nullColor = new Color(0,0,0,0);
+            if (previous_drag_position == Vector2.zero)
+            {
+                MarkPixelsToColour(pixel_pos, Pen_Width,nullColor );
+            }
+            else
+            {
+                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, nullColor);
+            }
+            ApplyMarkedPixelChanges();
+            previous_drag_position = pixel_pos;
+        }
+
+        public void Crayon(Vector2 world_point)
+        {
+            Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
+            Color crayonColor = new Color(Pen_Colour.r,Pen_Colour.g,Pen_Colour.b,0.1f);
+            cur_colors = drawable_texture.GetPixels32();
+            spread = 0.4f;
+            if (previous_drag_position == Vector2.zero)
+            {
+                MarkPixelsToColour(pixel_pos, Pen_Width,crayonColor);
+            }
+            else
+            {
+                ColourBetween(previous_drag_position, pixel_pos, Pen_Width, crayonColor);
+            }
+            ApplyMarkedPixelChanges();
+            previous_drag_position = pixel_pos;
         }
 
         public void SetOutilToGomme()
         {
-            Pen_Colour = new Color(0, 0, 0, 0);
-            Pen_Width = 10;
-
             // PenBrush is the NAME of the method we want to set as our current brush
+            current_brush = Gomme;
+        }
+
+
+        public void SetThickness(float thickness)
+        {
+            Pen_Width = (int) (20*thickness);
+        }
+
+        public void SetOutilToMarqueur()
+        {
             current_brush = PenBrush;
+        }
+
+        public void SetOutilToBucket()
+        {
+
+            current_brush = Bucket;
         }
 
         public void SetOutilToCrayon()
         {
-            Pen_Colour = Color.red;
-            Pen_Width = 5;
 
-            // PenBrush is the NAME of the method we want to set as our current brush
-            current_brush = PenBrush;
+            current_brush = Crayon;
+        }
+
+
+        public void changeColorToBlue()
+        {
+            Pen_Colour = Color.blue;
+        }
+        public void changeColorToRed()
+        {
+            Pen_Colour = Color.red;
+        }
+        public void changeColorToYellow()
+        {
+            Pen_Colour = Color.yellow;
+        }
+        public void changeColorToOrange()
+        {
+            Pen_Colour = new Color(249f/255,101f/255,21f/255,1);
+        }
+        public void changeColorToVert()
+        {
+            Pen_Colour = Color.green;
+        }
+        public void changeColorToViolet()
+        {
+            Pen_Colour = new Color(199f/255,36f/255,177f/255,1);
+        }
+        public void changeColorToNoir()
+        {
+            Pen_Colour = Color.black;
+        }
+        public void changeColorToCyan()
+        {
+            Pen_Colour = Color.cyan;
         }
 //////////////////////////////////////////////////////////////////////////////
 
@@ -167,7 +241,7 @@ namespace FreeDraw
         {
             // Is the user holding down the left mouse button?
             bool mouse_held_down = Input.GetMouseButton(0);
-            if (mouse_held_down && !no_drawing_on_current_drag && allowedDrawing)
+            if (mouse_held_down && !no_drawing_on_current_drag)
             {
                 // Convert mouse coordinates to world coordinates
                 Vector2 mouse_world_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -202,31 +276,46 @@ namespace FreeDraw
             mouse_was_previously_held_down = mouse_held_down;
         }
 
-        public void AllowDisallowDrawing()
+        public void flood_fill(Vector2 mypoint)
         {
-                allowedDrawing =  !allowedDrawing;
+            int x = (int) mypoint.x;
+            int y=(int) mypoint.y;
+            int array_pos = y * (int)drawable_sprite.rect.width + x;
+            if (array_pos > cur_colors.Length || array_pos < 0)
+                return;
+            Color oldcolor=cur_colors[array_pos];
+            if (oldcolor==Pen_Colour)
+                return;
+            Queue<KeyValuePair<int,int>> myqueue = new Queue<KeyValuePair<int, int>>();
+            myqueue.Enqueue(new KeyValuePair<int, int>(x,y));
+            while ((myqueue.Count != 0))
+            {   
 
+                KeyValuePair<int,int> currentvalue=myqueue.Dequeue();
+                x=currentvalue.Key;
+                y=currentvalue.Value;
+                array_pos = y * (int)drawable_sprite.rect.width + x;
+
+                if (array_pos >= cur_colors.Length || array_pos < 0 || (cur_colors[array_pos]!=oldcolor && cur_colors[array_pos].a==255 ))
+                    continue;
+                else {
+                    cur_colors[array_pos]=new Color(Pen_Colour.r,Pen_Colour.g,Pen_Colour.b,1);
+                    myqueue.Enqueue(new KeyValuePair<int, int>(x+1,y));
+                    myqueue.Enqueue(new KeyValuePair<int, int>(x-1,y));
+                    myqueue.Enqueue(new KeyValuePair<int, int>(x,y+1));
+                    myqueue.Enqueue(new KeyValuePair<int, int>(x,y-1));
+
+                }
+            }
+
+            
         }
-
-        public void AllowDisallowDrawingPetitPanel()
-        {
-               if(outilPanel.activeSelf || couleurPanel.activeSelf || gommePanel.activeSelf)
-               {
-                   allowedDrawing = false;
-               }else
-               {
-                   allowedDrawing = true;
-               }
-
-        }
-
 
         // Set the colour of pixels in a straight line from start_point all the way to end_point, to ensure everything inbetween is coloured
         public void ColourBetween(Vector2 start_point, Vector2 end_point, int width, Color color)
         {
             // Get the distance from start to finish
             float distance = Vector2.Distance(start_point, end_point);
-
             Vector2 direction = (start_point - end_point).normalized;
 
             Vector2 cur_position = start_point;
@@ -251,26 +340,72 @@ namespace FreeDraw
             int center_x = (int)center_pixel.x;
             int center_y = (int)center_pixel.y;
             //int extra_radius = Mathf.Min(0, pen_thickness - 2);
-
-            for (int x = center_x - pen_thickness ; x <= center_x + pen_thickness; x++)
+            for (int x = center_x - 2*pen_thickness ; x <= center_x + 2*pen_thickness; x++)
             {
                 // Check if the X wraps around the image, so we don't draw pixels on the other side of the image
                 if (x >= (int)drawable_sprite.rect.width || x < 0)
                     continue;
 
-                for (int y = center_y - pen_thickness; y <= center_y + pen_thickness; y++)
+                for (int y = center_y - 2*pen_thickness; y <= center_y + 2*pen_thickness; y++)
                 {
                     int x_rel = x - center_x;
                     int y_rel = y -center_y;
+                    float distanceToCenter =  Mathf.Sqrt(x_rel*x_rel + y_rel*y_rel);
                     
-                   if (x_rel*x_rel + y_rel*y_rel <= (pen_thickness)*(pen_thickness))
+                    float random = Random.Range(0f,1f);
+                   if (distanceToCenter <= (2*pen_thickness) && random<=spread)
                     {
-                        MarkPixelToChange(x, y, color_of_pen);
+                        MarkPixelToChange(x, y, color_of_pen,distanceToCenter,pen_thickness);
                     }
                 }
             }
         }
-        public void MarkPixelToChange(int x, int y, Color color)
+        public static Color CombineColors(Color color1, Color color2)
+        {
+        Color result = new Color(Mathf.Min(color1.r ,color2.r ),Mathf.Min(color1.g, color2.g ),Mathf.Min(color1.b, color2.b ),255);
+        return result;
+        }
+
+        public static float MixColors(float indice1,float indice2,float distanceToCenter,int pen_thickness)
+        {
+            return ((2-distanceToCenter/pen_thickness)*indice1+(1-(2-distanceToCenter/pen_thickness))*indice2);
+        }
+        
+        public static float MixColorsWithAlpha(float indice1,float indice2,float alpha1)
+        {
+            return (alpha1*indice1+(1-alpha1)*indice2);
+        }
+        public static Color AntiAliasing(Color color1,Color color2,float distanceToCenter,int pen_thickness)
+        {
+            Color result;
+            if(distanceToCenter<pen_thickness){
+                if(color2.a==0)
+                    result = new Color(color1.r,color1.g,color1.b,Mathf.Min(1,color2.a+color1.a));
+                else
+                    result = new Color(MixColorsWithAlpha(color1.r,color2.r,color1.a),MixColorsWithAlpha(color1.g,color2.g,color1.a),MixColorsWithAlpha(color1.b,color2.b,color1.a),Mathf.Min(1,color2.a+color1.a));
+
+            } else {
+                if(color2.a==0)
+                    result = new Color(color1.r,color1.g,color1.b,Mathf.Max((2-distanceToCenter/pen_thickness)*color1.a,color2.a));
+                else 
+                {
+                    float newr = MixColorsWithAlpha(MixColors(color1.r,color2.r,distanceToCenter,pen_thickness),color2.r,color1.a);
+                    float newg = MixColorsWithAlpha(MixColors(color1.g,color2.g,distanceToCenter,pen_thickness),color2.g,color1.a);
+                    float newb = MixColorsWithAlpha(MixColors(color1.b,color2.b,distanceToCenter,pen_thickness),color2.b,color1.a);
+
+                    result = new Color(newr,newg,newb,Mathf.Max((2-distanceToCenter/pen_thickness)*color1.a,color2.a));
+                }
+            }
+            
+            
+            return result;
+        }
+
+        float compute_alpha(float color1alpha, float color2alpha){
+            return Mathf.Min(1,color1alpha+color2alpha);
+        }
+        
+        public void MarkPixelToChange(int x, int y, Color color,float distanceToCenter,int pen_thickness)
         {
             // Need to transform x and y coordinates to flat coordinates of array
             int array_pos = y * (int)drawable_sprite.rect.width + x;
@@ -279,7 +414,11 @@ namespace FreeDraw
             if (array_pos > cur_colors.Length || array_pos < 0)
                 return;
 
-            cur_colors[array_pos] = color;
+            if(color.a!=0)
+                cur_colors[array_pos] = AntiAliasing(color,cur_colors[array_pos],distanceToCenter,pen_thickness);
+            else 
+                cur_colors[array_pos] =color;
+            
         }
         public void ApplyMarkedPixelChanges()
         {
@@ -373,6 +512,3 @@ namespace FreeDraw
                 ResetCanvas();
         }
     }
-
-
-}
