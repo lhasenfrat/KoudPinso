@@ -370,20 +370,20 @@ using System.Collections.Generic;
             int center_x = (int)center_pixel.x;
             int center_y = (int)center_pixel.y;
             //int extra_radius = Mathf.Min(0, pen_thickness - 2);
-            for (int x = center_x - 2*pen_thickness ; x <= center_x + 2*pen_thickness; x++)
+            for (int x = center_x - (4+pen_thickness) ; x <= center_x + 4+pen_thickness; x++)
             {
                 // Check if the X wraps around the image, so we don't draw pixels on the other side of the image
                 if (x >= (int)drawable_sprite.rect.width || x < 0)
                     continue;
 
-                for (int y = center_y - 2*pen_thickness; y <= center_y + 2*pen_thickness; y++)
+                for (int y = center_y - (4+pen_thickness); y <= center_y + 4+pen_thickness; y++)
                 {
                     int x_rel = x - center_x;
                     int y_rel = y -center_y;
                     float distanceToCenter =  Mathf.Sqrt(x_rel*x_rel + y_rel*y_rel);
                     
                     float random = Random.Range(0f,1f);
-                   if (distanceToCenter <= (2*pen_thickness) && random<=spread)
+                   if (distanceToCenter <= (4+pen_thickness) && random<=spread)
                     {
                         MarkPixelToChange(x, y, color_of_pen,distanceToCenter,pen_thickness);
                     }
@@ -416,14 +416,14 @@ using System.Collections.Generic;
 
             } else {
                 if(color2.a==0)
-                    result = new Color(color1.r,color1.g,color1.b,Mathf.Max((2-distanceToCenter/pen_thickness)*color1.a,color2.a));
+                    result = new Color(color1.r,color1.g,color1.b,Mathf.Max((pen_thickness/4-distanceToCenter/4+1)*color1.a,color2.a));
                 else 
                 {
                     float newr = MixColorsWithAlpha(MixColors(color1.r,color2.r,distanceToCenter,pen_thickness),color2.r,color1.a);
                     float newg = MixColorsWithAlpha(MixColors(color1.g,color2.g,distanceToCenter,pen_thickness),color2.g,color1.a);
                     float newb = MixColorsWithAlpha(MixColors(color1.b,color2.b,distanceToCenter,pen_thickness),color2.b,color1.a);
 
-                    result = new Color(newr,newg,newb,Mathf.Max((2-distanceToCenter/pen_thickness)*color1.a,color2.a));
+                    result = new Color(newr,newg,newb,Mathf.Max((pen_thickness/4-distanceToCenter/4+1)*color1.a,color2.a));
                 }
             }
             
