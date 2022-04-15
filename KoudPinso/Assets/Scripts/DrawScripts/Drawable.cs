@@ -152,7 +152,7 @@ namespace FreeDraw
         public void Crayon(Vector2 world_point)
         {
             Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
-            Color crayonColor = new Color(Pen_Colour.r,Pen_Colour.g,Pen_Colour.b,0.04f);
+            Color crayonColor = new Color(Pen_Colour.r,Pen_Colour.g,Pen_Colour.b,0.1f);
             cur_colors = drawable_texture.GetPixels32();
             spread = 0.4f;
             if (previous_drag_position == Vector2.zero)
@@ -346,7 +346,7 @@ namespace FreeDraw
             if(distanceToCenter<pen_thickness){
                 result = new Color(color1.r,color1.g,color1.b,Mathf.Min(1,color2.a+color1.a));
             } else {
-                result = new Color(color1.r,color1.g,color1.b,Mathf.Min(1,(Mathf.Max((2-distanceToCenter/pen_thickness)*color1.a,color2.a)+color2.a)));
+                result = new Color(color1.r,color1.g,color1.b,Mathf.Max((2-distanceToCenter/pen_thickness)*color1.a,color2.a));
 
             }
             
