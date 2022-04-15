@@ -21,6 +21,11 @@ using System.Collections.Generic;
 
         float spread;
 
+        
+        public GameObject outilPanel;
+        public GameObject couleurPanel;
+        public GameObject gommePanel;
+
 
         public delegate void Brush_Function(Vector2 world_position);
         // This is the function called when a left click happens
@@ -46,6 +51,8 @@ using System.Collections.Generic;
         Color32[] cur_colors;
         bool mouse_was_previously_held_down = false;
         bool no_drawing_on_current_drag = false;
+        bool allowedDrawing = true; //true si le dessin est autorise, false sinon
+        bool openedPanel = false;
 
 
 
@@ -241,7 +248,7 @@ using System.Collections.Generic;
         {
             // Is the user holding down the left mouse button?
             bool mouse_held_down = Input.GetMouseButton(0);
-            if (mouse_held_down && !no_drawing_on_current_drag)
+            if (mouse_held_down && !no_drawing_on_current_drag && allowedDrawing)
             {
                 // Convert mouse coordinates to world coordinates
                 Vector2 mouse_world_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -274,6 +281,25 @@ using System.Collections.Generic;
                 no_drawing_on_current_drag = false;
             }
             mouse_was_previously_held_down = mouse_held_down;
+        }
+
+        
+        public void AllowDisallowDrawing()
+        {
+                allowedDrawing =  !allowedDrawing;
+
+        }
+
+        public void AllowDisallowDrawingPetitPanel()
+        {
+               if(outilPanel.activeSelf || couleurPanel.activeSelf || gommePanel.activeSelf)
+               {
+                   allowedDrawing = false;
+               }else
+               {
+                   allowedDrawing = true;
+               }
+
         }
 
         public void flood_fill(Vector2 mypoint)

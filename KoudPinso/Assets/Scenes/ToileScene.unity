@@ -230,6 +230,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1194095521}
+        m_TargetAssemblyTypeName: Drawable, Assembly-CSharp
+        m_MethodName: AllowDisallowDrawingPetitPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &29842489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +378,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1194095521}
         m_TargetAssemblyTypeName: Drawable, Assembly-CSharp
         m_MethodName: changeColorToCyan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1194095521}
+        m_TargetAssemblyTypeName: Drawable, Assembly-CSharp
+        m_MethodName: AllowDisallowDrawingPetitPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1674,6 +1698,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1194095521}
+        m_TargetAssemblyTypeName: Drawable, Assembly-CSharp
+        m_MethodName: AllowDisallowDrawingPetitPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &367020588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1978,7 +2014,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.44444445}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2281,6 +2317,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1194095521}
+        m_TargetAssemblyTypeName: Drawable, Assembly-CSharp
+        m_MethodName: AllowDisallowDrawingPetitPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &543993819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2496,6 +2544,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1194095521}
         m_TargetAssemblyTypeName: Drawable, Assembly-CSharp
         m_MethodName: changeColorToVert
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1194095521}
+        m_TargetAssemblyTypeName: Drawable, Assembly-CSharp
+        m_MethodName: AllowDisallowDrawingPetitPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2922,18 +2982,6 @@ MonoBehaviour:
       - m_Target: {fileID: 320125640}
         m_TargetAssemblyTypeName: SettingsUIManager, Assembly-CSharp
         m_MethodName: ShowHomeScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1194095521}
-        m_TargetAssemblyTypeName: FreeDraw.Drawable, Assembly-CSharp
-        m_MethodName: SetOpenedPanelFalse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3809,6 +3857,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1194095521}
+        m_TargetAssemblyTypeName: Drawable, Assembly-CSharp
+        m_MethodName: AllowDisallowDrawingPetitPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &983150419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4339,8 +4399,8 @@ RectTransform:
   m_Father: {fileID: 1633619572}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.44444445}
+  m_AnchorMax: {x: 1, y: 0.44444445}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4625,6 +4685,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: 
+  outilPanel: {fileID: 161004092}
+  couleurPanel: {fileID: 2063835212}
+  gommePanel: {fileID: 1772205633}
   Drawing_Layers:
     serializedVersion: 2
     m_Bits: 64
@@ -5438,6 +5501,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1194095521}
         m_TargetAssemblyTypeName: FreeDraw.Drawable, Assembly-CSharp
         m_MethodName: changeColorToBlue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1194095521}
+        m_TargetAssemblyTypeName: Drawable, Assembly-CSharp
+        m_MethodName: AllowDisallowDrawingPetitPanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6978,6 +7053,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1194095521}
+        m_TargetAssemblyTypeName: Drawable, Assembly-CSharp
+        m_MethodName: AllowDisallowDrawingPetitPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1617163798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7633,7 +7720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1772205634
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8238,18 +8325,6 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1194095521}
         m_TargetAssemblyTypeName: FreeDraw.Drawable, Assembly-CSharp
-        m_MethodName: SetOpenedPanelTrue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1194095521}
-        m_TargetAssemblyTypeName: FreeDraw.Drawable, Assembly-CSharp
         m_MethodName: AllowDisallowDrawing
         m_Mode: 1
         m_Arguments:
@@ -8704,7 +8779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2063835213
 RectTransform:
   m_ObjectHideFlags: 0
