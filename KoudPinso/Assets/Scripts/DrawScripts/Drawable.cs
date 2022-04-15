@@ -173,6 +173,12 @@ namespace FreeDraw
             current_brush = Gomme;
         }
 
+
+        public void SetThickness(float thickness)
+        {
+            Pen_Width = (int) (20*thickness);
+        }
+
         public void SetOutilToMarqueur()
         {
             current_brush = PenBrush;
@@ -340,14 +346,36 @@ namespace FreeDraw
         Color result = new Color(Mathf.Min(color1.r ,color2.r ),Mathf.Min(color1.g, color2.g ),Mathf.Min(color1.b, color2.b ),255);
         return result;
         }
+
+        public static float MixColors(float indice1,float indice2,float distanceToCenter,int pen_thickness)
+        {
+            return ((2-distanceToCenter/pen_thickness)*indice1+(1-(2-distanceToCenter/pen_thickness))*indice2);
+        }
+        
+        public static float MixColorsWithAlpha(float indice1,float indice2,float alpha1)
+        {
+            return (alpha1*indice1+(1-alpha1)*indice2);
+        }
         public static Color AntiAliasing(Color color1,Color color2,float distanceToCenter,int pen_thickness)
         {
             Color result;
             if(distanceToCenter<pen_thickness){
-                result = new Color(color1.r,color1.g,color1.b,Mathf.Min(1,color2.a+color1.a));
-            } else {
-                result = new Color(color1.r,color1.g,color1.b,Mathf.Max((2-distanceToCenter/pen_thickness)*color1.a,color2.a));
+                if(color2.a==0)
+                    result = new Color(color1.r,color1.g,color1.b,Mathf.Min(1,color2.a+color1.a));
+                else
+                    result = new Color(MixColorsWithAlpha(color1.r,color2.r,color1.a),MixColorsWithAlpha(color1.g,color2.g,color1.a),MixColorsWithAlpha(color1.b,color2.b,color1.a),Mathf.Min(1,color2.a+color1.a));
 
+            } else {
+                if(color2.a==0)
+                    result = new Color(color1.r,color1.g,color1.b,Mathf.Max((2-distanceToCenter/pen_thickness)*color1.a,color2.a));
+                else 
+                {
+                    float newr = MixColorsWithAlpha(MixColors(color1.r,color2.r,distanceToCenter,pen_thickness),color2.r,color1.a);
+                    float newg = MixColorsWithAlpha(MixColors(color1.g,color2.g,distanceToCenter,pen_thickness),color2.g,color1.a);
+                    float newb = MixColorsWithAlpha(MixColors(color1.b,color2.b,distanceToCenter,pen_thickness),color2.b,color1.a);
+
+                    result = new Color(newr,newg,newb,Mathf.Max((2-distanceToCenter/pen_thickness)*color1.a,color2.a));
+                }
             }
             
             
