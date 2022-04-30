@@ -40,7 +40,6 @@ public class ActionsExterieurs : MonoBehaviour
     public void hidePanel(){
         if(panel.activeSelf)
         {
-            Debug.Log("je désactive");
             panel.SetActive(false);
         }
      
@@ -58,6 +57,7 @@ public class ActionsExterieurs : MonoBehaviour
             panel.SetActive(false);
         }else 
         {
+
             panel.SetActive(true);
         }
      

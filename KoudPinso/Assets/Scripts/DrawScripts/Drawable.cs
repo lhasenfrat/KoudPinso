@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.IO;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using DG.Tweening;
 
 
     [RequireComponent(typeof(SpriteRenderer))]
@@ -283,11 +285,21 @@ using System.Collections.Generic;
             mouse_was_previously_held_down = mouse_held_down;
         }
 
-        
-        public void AllowDisallowDrawing()
-        {
-                allowedDrawing =  !allowedDrawing;
+        public void CoroutineAllowDrawing() {
+            StartCoroutine(AllowDisallowDrawingPause());
+        }
 
+        
+        public IEnumerator AllowDisallowDrawingPause()
+        {   
+
+            yield return new WaitForSeconds(0.3f);
+            allowedDrawing =  !allowedDrawing;
+        }
+
+        public void AllowDisallowDrawing()
+        {       
+           allowedDrawing =  !allowedDrawing;
         }
 
         public void AllowDisallowDrawingPetitPanel()
