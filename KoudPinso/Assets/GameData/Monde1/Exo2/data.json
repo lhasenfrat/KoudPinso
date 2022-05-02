@@ -1,0 +1,12 @@
+{
+   "path": "Monde1/Exo2/",
+   "title": "blabla",
+   "description": "blablabla",
+   "nbetape": 2,
+   "etapes":[     
+	   "tracer le blabla",
+		"tracer le contour du blabla"
+   ],
+   "outils": "1010",
+   "couleurs":"10011000"
+}

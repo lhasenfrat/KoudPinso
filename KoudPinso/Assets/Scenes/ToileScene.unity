@@ -1207,6 +1207,7 @@ GameObject:
   - component: {fileID: 320125640}
   - component: {fileID: 320125639}
   - component: {fileID: 320125638}
+  - component: {fileID: 320125646}
   m_Layer: 5
   m_Name: SlidingPanel
   m_TagString: Untagged
@@ -1384,6 +1385,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 506.25}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &320125646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320125637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215e71d80ec1cba4fa46d934fe58a1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exotext: {fileID: 2036570814}
+  mypanel: {fileID: 320125637}
+  Base: {fileID: 1945509431}
 --- !u!1 &342719672
 GameObject:
   m_ObjectHideFlags: 0
@@ -8463,7 +8479,7 @@ GameObject:
   - component: {fileID: 1945509432}
   - component: {fileID: 1945509433}
   m_Layer: 0
-  m_Name: Base_Blanche
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

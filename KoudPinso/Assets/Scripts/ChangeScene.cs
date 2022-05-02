@@ -21,8 +21,8 @@ public class ChangeScene : MonoBehaviour
 
     public void OpenExercice(string exerciceName)
     {
-        Debug.Log(Application.dataPath+"/GameData/"+exerciceName+"data.json"+"\n"+Application.persistentDataPath + "/../currentexercise.json");
         CopyFile(Application.dataPath+"/GameData/"+exerciceName+"data.json",Application.persistentDataPath + "/../currentexercise.json");
+
         SceneManager.LoadScene("ToileScene");
 
     }

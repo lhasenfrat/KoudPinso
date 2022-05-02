@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-public class ExerciceText : MonoBehaviour
+public class GenerateExerciceText : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Text exotext;
-    public string titre = "template";
-	public string description = "superdescription";
-
+	public Text exotext;
+	public GameObject mypanel;
+	public GameObject Base;
     public static ExerciceText ReadFromFile(string filePath)
 	{
 		// If the file doesn't exist then just return the default object.
@@ -38,8 +36,19 @@ public class ExerciceText : MonoBehaviour
 
     void Start()
     {
-        this=ReadFromFile(Application.persistentDataPath + "/../currentexercise.json");
-        Text.text = this.titre +"\n" + this.description;
+        ExerciceText etext = ReadFromFile(Application.persistentDataPath + "/../currentexercise.json");
+
+        exotext.text = etext.title +"\n" + etext.description+ "\n"+etext.nbetape;
+		for(int i=0;i<etext.nbetape;i++){
+			exotext.text+="\n"+etext.etapes[i];
+		}
+		mypanel.GetComponent<AffichageText>().ChangeText();
+		
+		Texture2D skin = Base.GetComponent<IMG2Sprite>().LoadTexture(Application.dataPath+"/GameData/"+etext.path+"Base.png");
+     	MaterialPropertyBlock block = new MaterialPropertyBlock();
+     	block.SetTexture("_MainTex",skin);
+		Base.GetComponent<SpriteRenderer>().SetPropertyBlock(block);
+
     }
 
 }

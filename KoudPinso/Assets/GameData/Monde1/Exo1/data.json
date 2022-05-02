@@ -3,11 +3,11 @@
    "title": "Les ombres portées",
    "description": "j'adore les ombres",
    "nbetape": 3,
-   "etapes":{     
-		"etape1":"tracer les reperes",
-		"etape2":"tracer le contour de l'ombre",
-		"etape3":"colorier l'ombre"
-   }
+   "etapes":[     
+	   "tracer les reperes",
+		"tracer le contour de l'ombre",
+		"colorier l'ombre"
+   ],
    "outils": "1000",
    "couleurs":"10000000"
 }
