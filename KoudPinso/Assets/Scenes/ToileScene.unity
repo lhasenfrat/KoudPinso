@@ -1255,6 +1255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0297e991ef4f974eb8ff146b252b806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toile: {fileID: 1194095520}
+  detectSwipeAfterRelease: 0
+  SWIPE_THRESHOLD: 300
 --- !u!114 &320125641
 MonoBehaviour:
   m_ObjectHideFlags: 0
