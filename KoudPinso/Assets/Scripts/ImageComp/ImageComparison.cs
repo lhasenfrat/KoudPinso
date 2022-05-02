@@ -128,13 +128,13 @@ public class ImageComparison : MonoBehaviour
     //Edge Detection algorithm 
     bool[,] edgeDetection(Texture2D tex){
 
-        bool[,] edgeArr = new bool[tex.width,tex.height];
+        bool[,] edgeArr = new bool[tex.height,tex.width];
 
         
         for(int i=0;i<tex.width;i++){
             for(int j=0;j<tex.height;j++){
-                if(j==0 || i==0 || j==tex.height-1 || i == tex.width-1){
-                    edgeArr[i,j]=false;
+                if(j==0 || i==0 || i==tex.width-1 || j == tex.height-1){
+                    edgeArr[j,i]=false;
                 }else{
                     Color edge = Color.black;
                     edge+=tex.GetPixel(i-1,j-1);
@@ -159,7 +159,7 @@ public class ImageComparison : MonoBehaviour
 
                     float comp2 = Max(edge.maxColorComponent,(-1*edge).maxColorComponent);
 
-                    edgeArr[i,j]=(Sqrt(comp*comp+comp2*comp2)>0.4);
+                    edgeArr[j,i]=(Sqrt(comp*comp+comp2*comp2)>0.4);
                 }
                 
 
@@ -171,14 +171,14 @@ public class ImageComparison : MonoBehaviour
 
     //Transform a bool matrix into a Texture2D B&W image
     Texture2D edgeToTex(bool[,] edges){
-        Texture2D tex = new Texture2D(edges.GetLength(0),edges.GetLength(1));
+        Texture2D tex = new Texture2D(edges.GetLength(1),edges.GetLength(0));
 
-        for(int i=0;i<tex.width;i++){
-            for(int j=0;j<tex.height;j++){
-                if(edges[i,j]){
-                    tex.SetPixel(i,j,Color.white);
+        for(int x=0;x<tex.width;x++){
+            for(int y=0;y<tex.height;y++){
+                if(edges[y,x]){
+                    tex.SetPixel(x,y,Color.white);
                 }else{
-                    tex.SetPixel(i,j,Color.black);
+                    tex.SetPixel(x,y,Color.black);
                 }
 
             }
@@ -239,12 +239,12 @@ public class ImageComparison : MonoBehaviour
 
     //Transform an int matrix into a Texture2D Image
     Texture2D edgeDistToTex(int[,] edges){
-        Texture2D tex = new Texture2D(edges.GetLength(0),edges.GetLength(1));
+        Texture2D tex = new Texture2D(edges.GetLength(1),edges.GetLength(0));
 
-        for(int i=0;i<tex.width;i++){
-            for(int j=0;j<tex.height;j++){
-                    Color c = new Color((float)(edges[i,j]/20.0),(float)(edges[i,j]/20.0),(float)(edges[i,j]/20.0),1);
-                    tex.SetPixel(i,j,c);
+        for(int x=0;x<tex.width;x++){
+            for(int y=0;y<tex.height;y++){
+                    Color c = new Color((float)(edges[y,x]/20.0),(float)(edges[y,x]/20.0),(float)(edges[y,x]/20.0),1);
+                    tex.SetPixel(x,y,c);
                 
 
             }
