@@ -89,6 +89,42 @@ public class ImageComparison : MonoBehaviour
         return newtex;
     }
 
+    //Detecte les bornes 
+    bool[,] trimAndScale(bool[,] textBase, int width, int height){
+
+        int minY = textBase.GetLength(0);
+        int minX = textBase.GetLength(1);
+        int maxY = 0;
+        int maxX = 0;
+        
+        for(int x=0;x<textBase.GetLength(1);x++){
+            for(int y = 0; y<textBase.GetLength(0);y++){
+                if(textBase[y,x]){
+                    minY = Min(minY,y);
+                    minX = Min(minX,x);
+                    maxY = Max(maxY, y);
+                    maxX = Max(maxX,x);
+                }
+            }
+        }
+
+        bool[,] newtex =  new bool[height,width];
+
+        float deltaX = maxX-minX;
+        float deltaY = maxY-minY;
+        if(deltaX<0){
+            return new bool[height,width];
+        }
+
+        for(int x=0;x<width;x++){
+            for(int y=0;y<height;y++){
+                newtex[y,x] = textBase[Round(y*deltaY/(float)height),Round(x*deltaX/(float)width)];
+            }
+        }
+
+        return newtex;
+    }
+
     //Edge Detection algorithm 
     bool[,] edgeDetection(Texture2D tex){
 
