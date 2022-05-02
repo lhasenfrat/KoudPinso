@@ -204,6 +204,7 @@ using System.Collections.Generic;
 
         public void changeColorToBlue()
         {
+            Debug.Log("je change en bleu");
             Pen_Colour = Color.blue;
             if (current_brush == Crayon) {
                 SetOutilToCrayon();
@@ -357,6 +358,7 @@ using System.Collections.Generic;
 
         public void AllowDisallowDrawingPetitPanel()
         {
+
                if(outilPanel.activeSelf || couleurPanel.activeSelf || gommePanel.activeSelf)
                {
                    allowedDrawing = false;

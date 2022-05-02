@@ -3,17 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ActionsPetitsMenus : MonoBehaviour
+public class ActionsPetitsMenus : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    EventSystem eventSystem;
     
+    bool inContext;
+    public GameObject myGO;
+    public GameObject toile;
+
+
     private void Awake()
     {
-        eventSystem = FindObjectOfType<EventSystem>();
+        myGO = gameObject;
     }
 
-    private void OnEnable()
+    void Update()
     {
-        eventSystem.SetSelectedGameObject(this.gameObject);
+        if (Input.GetMouseButtonDown(0) && !inContext)
+        {
+            
+            myGO.SetActive(inContext);
+            toile.GetComponent<Drawable>().CoroutineAllowDrawing();
+        }
+    }
+ 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        inContext = true;
+    }
+ 
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        inContext = false;
     }
 }

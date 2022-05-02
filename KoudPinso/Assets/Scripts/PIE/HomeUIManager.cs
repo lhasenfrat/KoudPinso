@@ -6,6 +6,8 @@ public class HomeUIManager : MonoBehaviour
 {
     RectTransform rectTransform;
 
+    
+
     public GameObject toile;
     #region Getter
     static HomeUIManager instance;
@@ -51,4 +53,6 @@ public class HomeUIManager : MonoBehaviour
         toile.GetComponent<Drawable>().AllowDisallowDrawingPetitPanel();
         
     }
+
+
 }
