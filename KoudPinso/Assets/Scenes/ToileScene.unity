@@ -6548,6 +6548,7 @@ GameObject:
   - component: {fileID: 1568126675}
   - component: {fileID: 1568126677}
   - component: {fileID: 1568126676}
+  - component: {fileID: 1568126678}
   m_Layer: 5
   m_Name: MenuToilePanel
   m_TagString: Untagged
@@ -6618,6 +6619,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568126674}
   m_CullTransparentMesh: 1
+--- !u!114 &1568126678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568126674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8f4264e39fd7240a72760850c29a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myGO: {fileID: 0}
+  toile: {fileID: 1194095520}
 --- !u!1 &1575538140
 GameObject:
   m_ObjectHideFlags: 0

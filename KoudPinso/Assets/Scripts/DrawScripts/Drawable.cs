@@ -369,6 +369,11 @@ using System.Collections.Generic;
 
         }
 
+        public void setAllowedDrawing(bool allow)
+        {
+            allowedDrawing = allow;
+        }
+
         public void MouseClickOnPanel()
         {
             if (mouse_held_down) 
