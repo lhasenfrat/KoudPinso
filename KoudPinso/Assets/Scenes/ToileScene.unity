@@ -1520,6 +1520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b9286810217d54a8fab363952ecbab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toile: {fileID: 1194095520}
 --- !u!114 &348711595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8776,6 +8777,8 @@ GameObject:
   - component: {fileID: 2063835213}
   - component: {fileID: 2063835215}
   - component: {fileID: 2063835214}
+  - component: {fileID: 2063835217}
+  - component: {fileID: 2063835216}
   m_Layer: 5
   m_Name: MenuCouleurPanel
   m_TagString: Untagged
@@ -8849,6 +8852,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063835212}
   m_CullTransparentMesh: 1
+--- !u!114 &2063835216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063835212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c584714402bb66846b6e29e416297fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2063835217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063835212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 10
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 348711594}
+          m_TargetAssemblyTypeName: HomeUIManager, Assembly-CSharp
+          m_MethodName: HidePetitPanel
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 2063835212}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2101786791
 GameObject:
   m_ObjectHideFlags: 0
