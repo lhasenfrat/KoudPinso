@@ -10,6 +10,7 @@ public class ImageComparison : MonoBehaviour
 
     public GameObject imageConteneur;
     public TextAsset pic;
+    public TextAsset refPic;
     
 
     // Start is called before the first frame update
@@ -17,17 +18,30 @@ public class ImageComparison : MonoBehaviour
     {
         Texture2D tex = new Texture2D(2, 2);
         tex.LoadImage(pic.bytes);
-        
-        tex = compression(tex,10);
 
-        Debug.Log(tex.width);
-        Debug.Log(tex.height);
+        Texture2D refTex = new Texture2D(2, 2);
+        refTex.LoadImage(refPic.bytes);
+
+        tex = compression(tex,10);
+        refTex = compression(refTex,10);
 
         tex.Apply();
+        refTex.Apply();
 
+        bool[,] refEdges = edgeDetection(refTex);
         bool[,] edges = edgeDetection(tex);
 
         int[,] edgesDist = edgeDistComputing(edges);
+        int[,] edgesDistRef = edgeDistComputing(refEdges);
+
+        (int score, int scoreMax) scores = scoring(edgesDist,refEdges);
+        (int score, int scoreMax) scores2 = scoring(edgesDistRef,edges);
+        float score1 = 1-(float)scores.score/(float)scores.scoreMax;
+        float score2 = 1-(float)scores2.score/(float)scores2.scoreMax;
+        Debug.Log(score1);
+        Debug.Log(score2);
+        Debug.Log(Min(score1,score2));
+        
 
         tex = edgeDistToTex(edgesDist);
         tex.Apply();
@@ -140,6 +154,22 @@ public class ImageComparison : MonoBehaviour
         }
         return distToEdge;
     }
+
+    
+    (int,int) scoring(int[,] drawing, bool[,] reference){
+        int score =0;
+        int scoreMax = 0;
+        for(int i=0;i<reference.GetLength(0);i++){
+            for(int j=0;j<reference.GetLength(1);j++){
+                if(reference[i,j]){
+                    score+=drawing[i,j];
+                    scoreMax+=20;
+                }
+            }
+        }
+        return (score,scoreMax);
+    }
+
 
     void explore(int x, int y,ref int[,] arr, int dist){
         if(x<0||y<0||x>=arr.GetLength(0)||y>=arr.GetLength(1)||arr[x,y]<=dist|| dist>=20){
