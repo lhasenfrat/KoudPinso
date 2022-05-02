@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
         float spread;
 
-        public GameObject slidingPanel;
+        ///public GameObject slidingPanel;
         public GameObject outilPanel;
         public GameObject couleurPanel;
         public GameObject gommePanel;
@@ -49,11 +49,10 @@ using System.Collections.Generic;
         Color[] clean_colours_array;
         Color transparent;
         Color32[] cur_colors;
+        bool mouse_held_down = false;
         bool mouse_was_previously_held_down = false;
         bool no_drawing_on_current_drag = false;
         bool allowedDrawing = true; //true si le dessin est autorise, false sinon
-        //bool openedPanel = false;
-
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -304,7 +303,7 @@ using System.Collections.Generic;
         void Update()
         {
             // Is the user holding down the left mouse button?
-            bool mouse_held_down = Input.GetMouseButton(0);
+            mouse_held_down = Input.GetMouseButton(0);
             if (mouse_held_down && !no_drawing_on_current_drag && allowedDrawing)
             {
                 // Convert mouse coordinates to world coordinates
@@ -340,11 +339,20 @@ using System.Collections.Generic;
             mouse_was_previously_held_down = mouse_held_down;
         }
 
-        
-        public void AllowDisallowDrawing()
-        {
-               allowedDrawing =  !allowedDrawing;
+        public void CoroutineAllowDrawing() {
+            StartCoroutine(AllowDisallowDrawingPause());
+        }
 
+         public IEnumerator AllowDisallowDrawingPause()
+        {   
+
+            yield return new WaitForSeconds(0.3f);
+            allowedDrawing =  !allowedDrawing;
+        }
+
+        public void AllowDisallowDrawing()
+        {       
+           allowedDrawing =  !allowedDrawing;
         }
 
         public void AllowDisallowDrawingPetitPanel()
@@ -357,6 +365,15 @@ using System.Collections.Generic;
                    allowedDrawing = true;
                }
 
+        }
+
+        public void MouseClickOnPanel()
+        {
+            if (mouse_held_down) 
+            {
+                //Debug.Log(outilPanel.anchoredPosition);
+                //Debug.Log(Input.mousePosition);
+            }
         }
 
         public void flood_fill(Vector2 mypoint)
