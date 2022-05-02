@@ -28,11 +28,19 @@ public class ActionsPetitsMenus : MonoBehaviour, IPointerEnterHandler, IPointerE
  
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("incontext true");
         inContext = true;
     }
  
     public void OnPointerExit(PointerEventData eventData)
     {
+        Debug.Log("incontext false");
+        inContext = false;
+    }
+
+    public void setInContextFalse()
+    {
+        Debug.Log("incontext false par bouton");
         inContext = false;
     }
 }
