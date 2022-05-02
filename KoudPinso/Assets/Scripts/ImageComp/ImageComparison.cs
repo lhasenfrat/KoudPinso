@@ -36,7 +36,9 @@ public class ImageComparison : MonoBehaviour
 
         //Apply the edge detection algorithm
         bool[,] refEdges = edgeDetection(refTex);
+        refEdges = trimAndScale(refEdges,400,200);
         bool[,] edges = edgeDetection(tex);
+        edges = trimAndScale(edges,400,200);
 
         //Apply the distance-to-edge formula to obtain an int matrix for each of them
         int[,] edgesDist = edgeDistComputing(edges);
@@ -52,10 +54,11 @@ public class ImageComparison : MonoBehaviour
         Debug.Log(score2);
 
         //The final score will be the minimum of both scores
-        Debug.Log(Min(score1,score2));
+        Debug.Log(Max(Min((Min(score1,score2)-0.25)*2,1),0));
         
         //Show the edge-detection image on the GameComponent
         tex = edgeDistToTex(edgesDist);
+        
         tex.Apply();
 
         Sprite s = Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(0.5f,0.5f));
@@ -118,7 +121,7 @@ public class ImageComparison : MonoBehaviour
 
         for(int x=0;x<width;x++){
             for(int y=0;y<height;y++){
-                newtex[y,x] = textBase[Round(y*deltaY/(float)height),Round(x*deltaX/(float)width)];
+                newtex[y,x] = textBase[(int)Round(y*deltaY/(float)height)+minY,(int)Round(x*deltaX/(float)width)+minX];
             }
         }
 
