@@ -1,3 +1,5 @@
+/* Compare the submitted drawing with a reference image and calculate a score*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,41 +10,51 @@ using UnityEngine.UI;
 public class ImageComparison : MonoBehaviour
 {
 
-    public GameObject imageConteneur;
-    public TextAsset pic;
-    public TextAsset refPic;
+    public GameObject imageConteneur; 
+    public TextAsset pic; //submitted drawing
+    public TextAsset refPic; //reference image
     
 
-    // Start is called before the first frame update
+    // Main 
     void Start()
     {
+        //Load the drawing 
         Texture2D tex = new Texture2D(2, 2);
         tex.LoadImage(pic.bytes);
 
+        //Load the reference image
         Texture2D refTex = new Texture2D(2, 2);
         refTex.LoadImage(refPic.bytes);
 
+        //Compress both image
         tex = compression(tex,10);
         refTex = compression(refTex,10);
 
+        //Update both image
         tex.Apply();
         refTex.Apply();
 
+        //Apply the edge detection algorithm
         bool[,] refEdges = edgeDetection(refTex);
         bool[,] edges = edgeDetection(tex);
 
+        //Apply the distance-to-edge formula to obtain an int matrix for each of them
         int[,] edgesDist = edgeDistComputing(edges);
         int[,] edgesDistRef = edgeDistComputing(refEdges);
 
+        //Calculate scores. One score using the ref as a reference, the other one using the drawing as a reference
         (int score, int scoreMax) scores = scoring(edgesDist,refEdges);
         (int score, int scoreMax) scores2 = scoring(edgesDistRef,edges);
         float score1 = 1-(float)scores.score/(float)scores.scoreMax;
         float score2 = 1-(float)scores2.score/(float)scores2.scoreMax;
+
         Debug.Log(score1);
         Debug.Log(score2);
+
+        //The final score will be the minimum of both scores
         Debug.Log(Min(score1,score2));
         
-
+        //Show the edge-detection image on the GameComponent
         tex = edgeDistToTex(edgesDist);
         tex.Apply();
 
@@ -55,6 +67,7 @@ public class ImageComparison : MonoBehaviour
         return (c.r+c.g+c.b)/3;
     }
 
+    //Compress a Texture2D image using a compression coefficient
     Texture2D compression(Texture2D textBase,int coefCompression){
 
         Texture2D newtex = new Texture2D(textBase.width/coefCompression,textBase.height/coefCompression);
@@ -76,6 +89,7 @@ public class ImageComparison : MonoBehaviour
         return newtex;
     }
 
+    //Edge Detection algorithm 
     bool[,] edgeDetection(Texture2D tex){
 
         bool[,] edgeArr = new bool[tex.width,tex.height];
@@ -119,6 +133,7 @@ public class ImageComparison : MonoBehaviour
         return edgeArr;
     }
 
+    //Transform a bool matrix into a Texture2D B&W image
     Texture2D edgeToTex(bool[,] edges){
         Texture2D tex = new Texture2D(edges.GetLength(0),edges.GetLength(1));
 
@@ -137,6 +152,7 @@ public class ImageComparison : MonoBehaviour
 
     }
 
+    //Return an int matrix using the distance to each edge.
     int[,] edgeDistComputing (bool[,] edgesMap){
         int [,] distToEdge = new int[edgesMap.GetLength(0),edgesMap.GetLength(1)];
         for(int i=0;i<edgesMap.GetLength(0);i++){
@@ -155,7 +171,7 @@ public class ImageComparison : MonoBehaviour
         return distToEdge;
     }
 
-    
+    //Calculate the score
     (int,int) scoring(int[,] drawing, bool[,] reference){
         int score =0;
         int scoreMax = 0;
@@ -170,7 +186,7 @@ public class ImageComparison : MonoBehaviour
         return (score,scoreMax);
     }
 
-
+    //Explore the matrix
     void explore(int x, int y,ref int[,] arr, int dist){
         if(x<0||y<0||x>=arr.GetLength(0)||y>=arr.GetLength(1)||arr[x,y]<=dist|| dist>=20){
             return;
@@ -185,6 +201,7 @@ public class ImageComparison : MonoBehaviour
 
     }
 
+    //Transform an int matrix into a Texture2D Image
     Texture2D edgeDistToTex(int[,] edges){
         Texture2D tex = new Texture2D(edges.GetLength(0),edges.GetLength(1));
 
