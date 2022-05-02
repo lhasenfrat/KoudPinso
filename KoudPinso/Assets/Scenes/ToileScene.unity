@@ -1257,7 +1257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toile: {fileID: 1194095520}
   detectSwipeAfterRelease: 0
-  SWIPE_THRESHOLD: 300
+  SWIPE_THRESHOLD: 200
 --- !u!114 &320125641
 MonoBehaviour:
   m_ObjectHideFlags: 0
