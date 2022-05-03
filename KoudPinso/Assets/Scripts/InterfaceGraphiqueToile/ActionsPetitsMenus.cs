@@ -9,32 +9,42 @@ public class ActionsPetitsMenus : MonoBehaviour, IPointerEnterHandler, IPointerE
     bool inContext;
     public GameObject myGO;
     public GameObject toile;
+    public GameObject panelCouleur;
+    public GameObject panelOutil;
+
+    public GameObject panelGomme;
+
+    public GameObject canva;
 
 
     private void Awake()
     {
         myGO = gameObject;
+
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !inContext)
+        
+        if (Input.GetMouseButtonUp(0) && !inContext)
         {
-            
-            myGO.SetActive(inContext);
+           
+            myGO.SetActive(false);
             toile.GetComponent<Drawable>().CoroutineAllowDrawing();
+
         }
+ 
     }
  
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("incontext true");
+
         inContext = true;
     }
  
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("incontext false");
+
         inContext = false;
     }
 
