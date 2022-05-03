@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class ImageComparison : MonoBehaviour
 {
 
-    public GameObject imageConteneur; 
+    //public GameObject imageConteneur; 
     public TextAsset pic; //submitted drawing
     public TextAsset refPic; //reference image
     
@@ -18,9 +18,15 @@ public class ImageComparison : MonoBehaviour
     // Main 
     void Start()
     {
+        
+        
+    }
+
+    public void comparImage(){
+        
         //Load the drawing 
-        Texture2D tex = new Texture2D(2, 2);
-        tex.LoadImage(pic.bytes);
+        Texture2D tex =GameObject.Find("Toile").GetComponent<SpriteRenderer>().sprite.texture;
+        //tex.LoadImage(pic.bytes);
 
         //Load the reference image
         Texture2D refTex = new Texture2D(2, 2);
@@ -54,6 +60,7 @@ public class ImageComparison : MonoBehaviour
         Debug.Log(score2);
 
         //The final score will be the minimum of both scores
+        double scoreFinal = Round((Max(Min((Min(score1,score2)-0.25)*2,1),0))*100);
         Debug.Log(Max(Min((Min(score1,score2)-0.25)*2,1),0));
         
         //Show the edge-detection image on the GameComponent
@@ -62,7 +69,9 @@ public class ImageComparison : MonoBehaviour
         tex.Apply();
 
         Sprite s = Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(0.5f,0.5f));
-        imageConteneur.GetComponent<Image>().sprite = s;
+        //imageConteneur.GetComponent<Image>().sprite = s;
+
+        GameObject.Find("TextScore").GetComponent<Text>().text=scoreFinal.ToString();
         
     }
 

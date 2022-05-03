@@ -345,8 +345,10 @@ namespace FreeDraw
             for (int x = 0; x < clean_colours_array.Length; x++)
                 clean_colours_array[x] = Reset_Colour;
             // Should we reset our canvas image when we hit play in the editor?
-            if (Reset_Canvas_On_Play)
+            if (Reset_Canvas_On_Play){
+                Debug.Log("Helo");
                 ResetCanvas();
+            }
         }
     }
 }
