@@ -2098,7 +2098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pic: {fileID: 4900000, guid: e0ae36a9a2b3cb74c94829d55841acb9, type: 3}
-  refPic: {fileID: 4900000, guid: 5df483925816be248af95d0ff0132ec6, type: 3}
+  refPic: {fileID: 4900000, guid: 211d45f58cafb7f4bac9a059bc9dac63, type: 3}
 --- !u!114 &1153191730
 MonoBehaviour:
   m_ObjectHideFlags: 0
