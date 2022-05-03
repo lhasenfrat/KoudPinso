@@ -43,12 +43,11 @@ public class GenerateExerciceText : MonoBehaviour
 			exotext.text+="\n"+etext.etapes[i];
 		}
 		mypanel.GetComponent<AffichageText>().ChangeText();
-		
-		Texture2D skin = Base.GetComponent<IMG2Sprite>().LoadTexture(Application.dataPath+"/GameData/"+etext.path+"Base.png");
-     	MaterialPropertyBlock block = new MaterialPropertyBlock();
+		Texture2D skin;
+		skin = Base.GetComponent<IMG2Sprite>().LoadTexture(Application.persistentDataPath + "/../currentbase.png");
+		MaterialPropertyBlock block = new MaterialPropertyBlock();
      	block.SetTexture("_MainTex",skin);
 		Base.GetComponent<SpriteRenderer>().SetPropertyBlock(block);
-
     }
 
 }
