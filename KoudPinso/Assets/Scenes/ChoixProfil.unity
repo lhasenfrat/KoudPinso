@@ -812,6 +812,7 @@ GameObject:
   - component: {fileID: 1626415191}
   - component: {fileID: 1626415193}
   - component: {fileID: 1626415192}
+  - component: {fileID: 1626415194}
   m_Layer: 5
   m_Name: Fond
   m_TagString: Untagged
@@ -876,6 +877,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626415190}
   m_CullTransparentMesh: 1
+--- !u!95 &1626415194
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626415190}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: be5ff78710b08d24b80e5d00ee008d3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1995881246
 GameObject:
   m_ObjectHideFlags: 0
