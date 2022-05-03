@@ -18,20 +18,24 @@ public class ActionsMenuToile : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     void Update()
     {
-        Debug.Log("contexte : inContext");
-    
-        toile.GetComponent<Drawable>().setAllowedDrawing(!inContext);
+       
 
     }
  
     public void OnPointerEnter(PointerEventData eventData)
     {
         inContext = true;
+        Debug.Log("contexte "+ inContext);
+    
+        toile.GetComponent<Drawable>().setAllowedDrawing(!inContext);
     }
  
     public void OnPointerExit(PointerEventData eventData)
     {
         inContext = false;
+        Debug.Log("contexte "+ inContext);
+    
+        toile.GetComponent<Drawable>().setAllowedDrawing(!inContext);
     }
 
     public void setInContextFalse()
