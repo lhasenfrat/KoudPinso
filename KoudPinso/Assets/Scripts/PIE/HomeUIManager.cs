@@ -6,6 +6,9 @@ public class HomeUIManager : MonoBehaviour
 {
     RectTransform rectTransform;
 
+    
+
+    public GameObject toile;
     #region Getter
     static HomeUIManager instance;
     public static HomeUIManager Instance
@@ -55,5 +58,13 @@ public class HomeUIManager : MonoBehaviour
         Hide();
         SettingsUIManager.Instance.Show();
     }
+
+    public void HidePetitPanel(GameObject thisObj) //Cache les petits panels de menu quand on clique à l'extérieur
+    {
+        thisObj.SetActive(false);
+        toile.GetComponent<Drawable>().AllowDisallowDrawingPetitPanel();
+        
+    }
+
 
 }
