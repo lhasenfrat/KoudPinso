@@ -22,6 +22,10 @@ public class AffichageText : MonoBehaviour
     //recupère les infos dans exo et les met dans les objects text
     void Start()
     {
+        ChangeText();
+    }
+
+    public void ChangeText(){
         string[] lines = exo.GetComponent<Text>().text.Split('\n');
         textTitre.text = lines[0];
         textDescription.text = lines[1];
@@ -31,10 +35,5 @@ public class AffichageText : MonoBehaviour
             textObj.text += "○ "+lines[3+i]+"\n";
 
         }
-    }
-
-    void Update()
-    {
-        
     }
 }

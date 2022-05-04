@@ -1,0 +1,13 @@
+{
+   "path": "Monde1/Exo1/",
+   "title": "Les ombres portées",
+   "description": "j'adore les ombres",
+   "nbetape": 3,
+   "etapes":[     
+	   "tracer les reperes",
+		"tracer le contour de l'ombre",
+		"colorier l'ombre"
+   ],
+   "outils": "1000",
+   "couleurs":"10000000"
+}
