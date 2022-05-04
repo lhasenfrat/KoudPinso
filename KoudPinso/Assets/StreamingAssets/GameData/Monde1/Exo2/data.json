@@ -1,12 +1,13 @@
 {
    "path": "Monde1/Exo2/",
-   "title": "blabla",
-   "description": "blablabla",
-   "nbetape": 2,
+   "title": "Les ombres portées à l'autre côté'",
+   "description": "ajoutons un autre ombre",
+   "nbetape": 3,
    "etapes":[     
-	   "tracer le blabla",
-		"tracer le contour du blabla"
+	   "tracer les reperes",
+		"tracer le contour de l'ombre",
+		"colorier l'ombre"
    ],
-   "outils": "1010",
-   "couleurs":"10011000"
+   "outils": "1000",
+   "couleurs":"10000000"
 }
