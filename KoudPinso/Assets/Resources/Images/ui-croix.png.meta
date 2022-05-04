@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:KoudPinso/Assets/StreamingAssets/GameData/Monde1/Exo4/Base.png.meta
+guid: ffb377014828631419b9b28a4bedd090
+========
 guid: 917cda3aaf5fb1c4888316beec6c8067
+>>>>>>>> main:KoudPinso/Assets/Resources/Images/ui-croix.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
