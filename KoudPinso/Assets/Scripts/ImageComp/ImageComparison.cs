@@ -15,39 +15,21 @@ public class ImageComparison : MonoBehaviour
     public GameObject scoreCanvas;
     public Slider slider;
 
-
-    public float fillSpeed = 0.5f;
+    private float fillSpeed = 0.5f;
     private float targetProgress = 0;
+    private bool startScoreBar = false;
 
     /*The methods below are for the progression bar*/
 
-    //Find the GameObject
-    private void Awake()
-    {
-        
-    }   
-    
-    //Called before the first frame update
-    void Start(){
-        IncrementProgress(0.75f);
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (slider.value < targetProgress)
+        if (startScoreBar && slider.value < targetProgress)
         {
             slider.value += fillSpeed * Time.deltaTime;
         }
     }
-
-    //Add progress to the bar
-    public void IncrementProgress(float newProgress)
-    {
-        targetProgress = slider.value + newProgress;
-    }
-
-
 
 
 
@@ -63,7 +45,7 @@ public class ImageComparison : MonoBehaviour
 
         scoreCanvas.SetActive(true);
         yield return null;
-        
+
         
         //Load the drawing 
         Texture2D tex =GameObject.Find("Toile").GetComponent<SpriteRenderer>().sprite.texture;
@@ -108,6 +90,9 @@ public class ImageComparison : MonoBehaviour
 
         Sprite s = Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(0.5f,0.5f));
         //imageConteneur.GetComponent<Image>().sprite = s;
+
+        startScoreBar = true;
+        targetProgress = 0.9f;//(float)scoreFinal / (float)100;
 
         GameObject.Find("TextScore").GetComponent<Text>().text=scoreFinal.ToString();
         
