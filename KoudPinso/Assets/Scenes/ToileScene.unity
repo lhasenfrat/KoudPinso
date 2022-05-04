@@ -4907,7 +4907,6 @@ GameObject:
   - component: {fileID: 1153191732}
   - component: {fileID: 1153191731}
   - component: {fileID: 1153191730}
-  - component: {fileID: 1134429360}
   - component: {fileID: 1134429361}
   m_Layer: 5
   m_Name: ButtonFini
@@ -4916,14 +4915,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!222 &1134429360
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1134429357}
-  m_CullTransparentMesh: 1
 --- !u!114 &1134429361
 MonoBehaviour:
   m_ObjectHideFlags: 0
