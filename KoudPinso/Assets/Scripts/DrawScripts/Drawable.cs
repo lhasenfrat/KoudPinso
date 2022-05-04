@@ -21,7 +21,7 @@ using System.Collections.Generic;
 
         float spread;
 
-        
+        ///public GameObject slidingPanel;
         public GameObject outilPanel;
         public GameObject couleurPanel;
         public GameObject gommePanel;
@@ -49,11 +49,10 @@ using System.Collections.Generic;
         Color[] clean_colours_array;
         Color transparent;
         Color32[] cur_colors;
+        bool mouse_held_down = false;
         bool mouse_was_previously_held_down = false;
         bool no_drawing_on_current_drag = false;
         bool allowedDrawing = true; //true si le dessin est autorise, false sinon
-        bool openedPanel = false;
-
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -205,35 +204,93 @@ using System.Collections.Generic;
 
         public void changeColorToBlue()
         {
+            Debug.Log("je change en bleu");
             Pen_Colour = Color.blue;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
+                
         }
         public void changeColorToRed()
         {
             Pen_Colour = Color.red;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToYellow()
         {
             Pen_Colour = Color.yellow;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToOrange()
         {
             Pen_Colour = new Color(249f/255,101f/255,21f/255,1);
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToVert()
         {
             Pen_Colour = Color.green;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToViolet()
         {
             Pen_Colour = new Color(199f/255,36f/255,177f/255,1);
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToNoir()
         {
             Pen_Colour = Color.black;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
         public void changeColorToCyan()
         {
             Pen_Colour = Color.cyan;
+            if (current_brush == Crayon) {
+                SetOutilToCrayon();
+            } else if (current_brush == Bucket) {
+                SetOutilToBucket();
+            } else { // PenBrush or Gomme
+                SetOutilToMarqueur();
+            }
         }
 //////////////////////////////////////////////////////////////////////////////
 
@@ -247,7 +304,7 @@ using System.Collections.Generic;
         void Update()
         {
             // Is the user holding down the left mouse button?
-            bool mouse_held_down = Input.GetMouseButton(0);
+            mouse_held_down = Input.GetMouseButton(0);
             if (mouse_held_down && !no_drawing_on_current_drag && allowedDrawing)
             {
                 // Convert mouse coordinates to world coordinates
@@ -283,15 +340,25 @@ using System.Collections.Generic;
             mouse_was_previously_held_down = mouse_held_down;
         }
 
-        
-        public void AllowDisallowDrawing()
-        {
-                allowedDrawing =  !allowedDrawing;
+        public void CoroutineAllowDrawing() {
+            StartCoroutine(AllowDisallowDrawingPause());
+        }
 
+         public IEnumerator AllowDisallowDrawingPause()
+        {   
+
+            yield return new WaitForSeconds(0.3f);
+            allowedDrawing =  !allowedDrawing;
+        }
+
+        public void AllowDisallowDrawing()
+        {       
+           allowedDrawing =  !allowedDrawing;
         }
 
         public void AllowDisallowDrawingPetitPanel()
         {
+
                if(outilPanel.activeSelf || couleurPanel.activeSelf || gommePanel.activeSelf)
                {
                    allowedDrawing = false;
@@ -300,6 +367,20 @@ using System.Collections.Generic;
                    allowedDrawing = true;
                }
 
+        }
+
+        public void setAllowedDrawing(bool allow)
+        {
+            allowedDrawing = allow;
+        }
+
+        public void MouseClickOnPanel()
+        {
+            if (mouse_held_down) 
+            {
+                //Debug.Log(outilPanel.anchoredPosition);
+                //Debug.Log(Input.mousePosition);
+            }
         }
 
         public void flood_fill(Vector2 mypoint)
@@ -506,6 +587,7 @@ using System.Collections.Generic;
             drawable_texture.SetPixels(clean_colours_array);
             drawable_texture.Apply();
             SetOutilToMarqueur();
+            AllowDisallowDrawing();
         }
 
         public void SaveCanvas()
@@ -538,7 +620,10 @@ using System.Collections.Generic;
             for (int x = 0; x < clean_colours_array.Length; x++)
                 clean_colours_array[x] = Reset_Colour;
             // Should we reset our canvas image when we hit play in the editor?
-            if (Reset_Canvas_On_Play)
+            if (Reset_Canvas_On_Play) {
                 ResetCanvas();
+                AllowDisallowDrawing();
+            }
+                
         }
     }

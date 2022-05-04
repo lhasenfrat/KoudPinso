@@ -6,6 +6,9 @@ public class HomeUIManager : MonoBehaviour
 {
     RectTransform rectTransform;
 
+    
+
+    public GameObject toile;
     #region Getter
     static HomeUIManager instance;
     public static HomeUIManager Instance
@@ -28,6 +31,18 @@ public class HomeUIManager : MonoBehaviour
         rectTransform.DOAnchorPosY(0, 0f);
     }
 
+    void Update(){
+        if (Application.platform == RuntimePlatform.Android) {
+        
+        // Check if Back was pressed this frame
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            
+            // Quit the application
+            ShowSettingsMenu();
+        }
+    }
+    }
+
     public void Show(float delay = 0f)
     {
         rectTransform.DOAnchorPosY(0, 0.3f).SetDelay(delay);
@@ -43,5 +58,13 @@ public class HomeUIManager : MonoBehaviour
         Hide();
         SettingsUIManager.Instance.Show();
     }
+
+    public void HidePetitPanel(GameObject thisObj) //Cache les petits panels de menu quand on clique à l'extérieur
+    {
+        thisObj.SetActive(false);
+        toile.GetComponent<Drawable>().AllowDisallowDrawingPetitPanel();
+        
+    }
+
 
 }
