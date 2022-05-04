@@ -739,6 +739,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1113174484}
   - {fileID: 903035156}
   - {fileID: 530900440}
   - {fileID: 1350491721}
@@ -2437,7 +2438,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 183514673}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -3700,7 +3701,7 @@ RectTransform:
   m_Children:
   - {fileID: 601554444}
   m_Father: {fileID: 183514673}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -4837,12 +4838,12 @@ RectTransform:
   m_Children:
   - {fileID: 1162133669}
   - {fileID: 1001890372}
-  m_Father: {fileID: 1565706840}
-  m_RootOrder: 1
+  m_Father: {fileID: 183514673}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000006198883, y: -0.0000019073486}
+  m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 354.901, y: 81.3163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1113174485
@@ -6284,7 +6285,7 @@ RectTransform:
   m_Children:
   - {fileID: 1132060889}
   m_Father: {fileID: 183514673}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7092,7 +7093,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 183514673}
-  - {fileID: 1113174484}
   m_Father: {fileID: 979148939}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7121,7 +7121,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 41af9849f092e3142be48614d3dfead3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8824,7 +8824,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e1b5e088f7711b44db7fa6334924ca6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41af9849f092e3142be48614d3dfead3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
