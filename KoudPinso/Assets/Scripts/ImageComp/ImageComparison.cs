@@ -6,13 +6,12 @@ using UnityEngine;
 using static System.Math;
 using System;
 using UnityEngine.UI;
+using System.IO;
 
 public class ImageComparison : MonoBehaviour
 {
 
     //public GameObject imageConteneur; 
-    public TextAsset pic; //submitted drawing
-    public TextAsset refPic; //reference image
     
 
     // Main 
@@ -26,12 +25,9 @@ public class ImageComparison : MonoBehaviour
         
         //Load the drawing 
         Texture2D tex =GameObject.Find("Toile").GetComponent<SpriteRenderer>().sprite.texture;
-        //tex.LoadImage(pic.bytes);
 
-        //Load the reference image
-        Texture2D refTex = new Texture2D(2, 2);
-        refTex.LoadImage(refPic.bytes);
-
+        Texture2D refTex = new Texture2D(2,2);
+        refTex.LoadImage(File.ReadAllBytes(Application.persistentDataPath + "/../currentRef.png"));
         //Compress both image
         tex = compression(tex,10);
         refTex = compression(refTex,10);
@@ -265,9 +261,4 @@ public class ImageComparison : MonoBehaviour
         return tex;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }   

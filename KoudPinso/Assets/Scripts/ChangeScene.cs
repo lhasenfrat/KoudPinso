@@ -25,6 +25,7 @@ public class ChangeScene : MonoBehaviour
         
         string filePath = Application.streamingAssetsPath+"/GameData/"+exerciceName+"data.json";
         string fileImage = Application.streamingAssetsPath+"/GameData/"+exerciceName+"Base.png";
+        string fileRef = Application.streamingAssetsPath+"/GameData/"+exerciceName+"Ref.png";
 
         if (Application.platform == RuntimePlatform.Android)
         {
@@ -46,6 +47,16 @@ public class ChangeScene : MonoBehaviour
         if (webRequest.result==UnityWebRequest.Result.Success)
         {
             System.IO.File.WriteAllBytes(Application.persistentDataPath + "/../currentbase.png",webRequest.downloadHandler.data);
+        } else {
+            Debug.Log("not working");
+        }
+
+        UnityWebRequest webRequestRef = UnityWebRequest.Get(fileRef);
+        webRequestRef.SendWebRequest();
+        while(!webRequestRef.isDone){}
+        if (webRequestRef.result==UnityWebRequest.Result.Success)
+        {
+            System.IO.File.WriteAllBytes(Application.persistentDataPath + "/../currentRef.png",webRequestRef.downloadHandler.data);
         } else {
             Debug.Log("not working");
         }
