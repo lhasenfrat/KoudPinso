@@ -8,6 +8,7 @@ public class GenerateExerciceText : MonoBehaviour
 	public Text exotext;
 	public GameObject mypanel;
 	public GameObject Base;
+
     public static ExerciceText ReadFromFile(string filePath)
 	{
 		// If the file doesn't exist then just return the default object.
@@ -48,6 +49,8 @@ public class GenerateExerciceText : MonoBehaviour
 		MaterialPropertyBlock block = new MaterialPropertyBlock();
      	block.SetTexture("_MainTex",skin);
 		Base.GetComponent<SpriteRenderer>().SetPropertyBlock(block);
+
+
     }
 
 }

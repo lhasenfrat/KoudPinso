@@ -10,19 +10,22 @@ public class Cinematique : MonoBehaviour
     public GameObject panelCinematique;
     public GameObject toile;
 
-    public GameObject pie;
+    public GameObject exo;
 
     private string titreExo;
     // Start is called before the first frame update
-    void Start()
+    public void checkDessinLibre()
     {
+
         getNomExo();
+        Debug.Log(titreExo);
         if(titreExo!="Dessin libre")
         {
             panelCinematique.SetActive(true);
             toile.GetComponent<Drawable>().setAllowedDrawing(false);
         }else
         {
+            
             panelCinematique.SetActive(false);
             toile.GetComponent<Drawable>().setAllowedDrawing(true);
         }
@@ -41,11 +44,19 @@ public class Cinematique : MonoBehaviour
         toile.GetComponent<Drawable>().setAllowedDrawing(true);
     }
 
+    public void OpenPanel()
+    {
+        panelCinematique.SetActive(true);
+        toile.GetComponent<Drawable>().setAllowedDrawing(false);
+    }
+
     public void getNomExo()
     {
         Debug.Log("cc");
-        titreExo = pie.GetComponent<AffichageText>().getTitre();
+        titreExo = exo.GetComponent<AffichageText>().getTitre();
         Debug.Log("cccc");
 
     }
+
+    
 }

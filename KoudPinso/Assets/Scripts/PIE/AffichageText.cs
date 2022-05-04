@@ -18,6 +18,8 @@ public class AffichageText : MonoBehaviour
     public Text textDescription;
     public Text textObj; 
     public GameObject exo;
+    public GameObject cinematique;
+
 
     //recupère les infos dans exo et les met dans les objects text
     void Start()
@@ -35,6 +37,8 @@ public class AffichageText : MonoBehaviour
             textObj.text += "○ "+lines[3+i]+"\n";
 
         }
+        cinematique.GetComponent<Cinematique>().checkDessinLibre();
+
     }
 
     public string getTitre()
