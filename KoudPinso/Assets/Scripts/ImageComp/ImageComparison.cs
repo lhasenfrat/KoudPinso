@@ -12,30 +12,21 @@ public class ImageComparison : MonoBehaviour
 {
 
     //public GameObject imageConteneur; 
-    public GameObject scoreCanvas;
-    public Slider slider;
-
-    private float fillSpeed = 0.5f;
-    private float targetProgress = 0;
-    private bool startScoreBar = false;
+    public GameObject UIScore;
 
     /*The methods below are for the progression bar*/
 
 
     // Update is called once per frame
     void Update()
-    {
-        if (startScoreBar && slider.value < targetProgress)
-        {
-            slider.value += fillSpeed * Time.deltaTime;
-        }
+    {  
     }
 
 
 
     /*The methods below are for the image comparison and calculate a score*/
 
-    public void test(){
+    public void calculScore(){
         
         StartCoroutine(comparImage());
 
@@ -43,7 +34,7 @@ public class ImageComparison : MonoBehaviour
 
     IEnumerator comparImage(){
 
-        scoreCanvas.SetActive(true);
+        UIScore.GetComponent<UIScoring>().OpenPanel();
         yield return null;
 
         
@@ -79,22 +70,26 @@ public class ImageComparison : MonoBehaviour
         Debug.Log(score1);
         Debug.Log(score2);
 
-        //The final score will be the minimum of both scores
-        double scoreFinal = Round((Max(Min((Min(score1,score2)-0.25)*2,1),0))*100);
-        Debug.Log(Max(Min((Min(score1,score2)-0.25)*2,1),0));
+        //The final score will be the minimum of both scores with some modification
+        //(we look only at values between 0.25 and 0.75)
+        double scoreFinal = Min(score1,score2)-0.25;
+        scoreFinal = scoreFinal *2;
+        scoreFinal = Max(scoreFinal,0);
+        scoreFinal = Min(scoreFinal,1);
+        if(double.IsNaN(scoreFinal)){
+            scoreFinal=0;
+        }
+        Debug.Log(scoreFinal);
+
+        UIScore.GetComponent<UIScoring>().updateScore((float)scoreFinal);
         
         //Show the edge-detection image on the GameComponent
-        tex = edgeDistToTex(edgesDist);
+        //tex = edgeDistToTex(edgesDist);
         
-        tex.Apply();
+        //tex.Apply();
 
-        Sprite s = Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(0.5f,0.5f));
+        //Sprite s = Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(0.5f,0.5f));
         //imageConteneur.GetComponent<Image>().sprite = s;
-
-        startScoreBar = true;
-        targetProgress = 0.9f;//(float)scoreFinal / (float)100;
-
-        GameObject.Find("TextScore").GetComponent<Text>().text=scoreFinal.ToString();
         
     }
 
