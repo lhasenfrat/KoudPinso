@@ -4291,7 +4291,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Reset_Canvas_On_Play: 1
-  Reset_Colour: {r: 0, g: 0, b: 0, a: 0}
+  Reset_Colour: {r: 1, g: 1, b: 1, a: 0}
 --- !u!61 &1194095522
 BoxCollider2D:
   m_ObjectHideFlags: 0

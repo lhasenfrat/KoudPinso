@@ -141,7 +141,7 @@ using System.Collections.Generic;
             Vector2 pixel_pos = WorldToPixelCoordinates(world_point);
             spread = 1;
             cur_colors = drawable_texture.GetPixels32();
-            Color nullColor = new Color(0,0,0,0);
+            Color nullColor = new Color(1,1,1,0);
             if (previous_drag_position == Vector2.zero)
             {
                 MarkPixelsToColour(pixel_pos, Pen_Width,nullColor );
