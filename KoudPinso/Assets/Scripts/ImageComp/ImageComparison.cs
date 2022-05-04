@@ -11,15 +11,47 @@ using System.IO;
 public class ImageComparison : MonoBehaviour
 {
 
-    //public GameObject imageConteneur; 
-    
+    //Var
 
-    // Main 
-    void Start()
+    //public GameObject imageConteneur; 
+    private Slider slider;
+
+    public float fillSpeed = 0.5f;
+    private float targetProgress = 0;
+
+    /*The methods below are for the progression bar*/
+
+    //Find the GameObject
+    private void Awake()
     {
-        
-        
+        slider = GameObject.Find("ProgressBar").GetComponent<Slider>();
     }
+    
+    //Called before the first frame update
+    void Start(){
+        IncrementProgress(0.75f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (slider.value < targetProgress)
+        {
+            slider.value += fillSpeed + Time.deltaTime;
+        }
+    }
+
+    //Add progress to the bar
+    public void IncrementProgress(float newProgress)
+    {
+        targetProgress = slider.value + newProgress;
+    }
+
+
+
+
+
+    /*The methods below are for the image comparison and calculate a score*/
 
     public void comparImage(){
         
