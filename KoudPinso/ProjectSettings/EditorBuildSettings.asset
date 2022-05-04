@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CarteMondes.unity
     guid: d86f7bc59fd256c48a201ace2c20f767
+  - enabled: 1
+    path: Assets/Scenes/CarteExercicesOmbres.unity
+    guid: f7143c6a8d1a86e45adf6f358c6707fd
   m_configObjects: {}
