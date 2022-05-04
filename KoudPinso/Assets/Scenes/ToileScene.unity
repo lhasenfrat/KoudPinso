@@ -7312,6 +7312,8 @@ MonoBehaviour:
   panelCinematique: {fileID: 1747468138}
   toile: {fileID: 1194095520}
   exo: {fileID: 320125637}
+  boutonCinematique: {fileID: 1309138092}
+  boutonFini: {fileID: 1134429357}
 --- !u!1 &1747608352
 GameObject:
   m_ObjectHideFlags: 0
