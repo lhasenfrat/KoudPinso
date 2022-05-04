@@ -36,4 +36,10 @@ public class AffichageText : MonoBehaviour
 
         }
     }
+
+    public string getTitre()
+    {
+        return textTitre.text;
+    }
+
 }
