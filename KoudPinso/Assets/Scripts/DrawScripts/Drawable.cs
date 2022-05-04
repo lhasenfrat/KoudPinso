@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.IO;
 using System.Collections.Generic;
@@ -44,6 +45,19 @@ using System.Collections.Generic;
         // MUST HAVE READ/WRITE enabled set in the file editor of Unity
         Sprite drawable_sprite;
         Texture2D drawable_texture;
+
+
+        public Sprite crayonSprite;
+        public Sprite MarqueurSprite;
+        public Sprite BucketSprite;
+
+        public GameObject outilButton;
+        public GameObject outilGomme;
+        public GameObject outilColor;
+
+        public GameObject crayonButton;
+        public GameObject marqueurButton;
+        public GameObject bucketButton;
 
         Vector2 previous_drag_position;
         Color[] clean_colours_array;
@@ -176,6 +190,9 @@ using System.Collections.Generic;
         {
             // PenBrush is the NAME of the method we want to set as our current brush
             current_brush = Gomme;
+            Color oldcolor = outilButton.GetComponent<Image>().color;
+            outilButton.GetComponent<Image>().color = new Color(oldcolor.r,oldcolor.g,oldcolor.b,0.2f);
+            outilGomme.GetComponent<Image>().color = new Color(1,1,1,1);
         }
 
 
@@ -187,25 +204,41 @@ using System.Collections.Generic;
         public void SetOutilToMarqueur()
         {
             current_brush = PenBrush;
+            outilButton.GetComponent<Image>().overrideSprite = MarqueurSprite;
+            
+            Color oldcolor = outilButton.GetComponent<Image>().color;
+            outilButton.GetComponent<Image>().color = new Color(oldcolor.r,oldcolor.g,oldcolor.b,1);
+            outilGomme.GetComponent<Image>().color = new Color(1,1,1,0.2f);
         }
 
         public void SetOutilToBucket()
         {
 
             current_brush = Bucket;
+            outilButton.GetComponent<Image>().overrideSprite = BucketSprite;
+
+            Color oldcolor = outilButton.GetComponent<Image>().color;
+            outilButton.GetComponent<Image>().color = new Color(oldcolor.r,oldcolor.g,oldcolor.b,1);            outilGomme.GetComponent<Image>().color = new Color(1,1,1,0.2f);
+
         }
 
         public void SetOutilToCrayon()
         {
 
             current_brush = Crayon;
+            outilButton.GetComponent<Image>().overrideSprite = crayonSprite;
+            
+            Color oldcolor = outilButton.GetComponent<Image>().color;
+            outilButton.GetComponent<Image>().color = new Color(oldcolor.r,oldcolor.g,oldcolor.b,1);
+            outilGomme.GetComponent<Image>().color = new Color(1,1,1,0.2f);
+
         }
 
 
         public void changeColorToBlue()
         {
-            Debug.Log("je change en bleu");
             Pen_Colour = Color.blue;
+
             if (current_brush == Crayon) {
                 SetOutilToCrayon();
             } else if (current_brush == Bucket) {
@@ -213,6 +246,14 @@ using System.Collections.Generic;
             } else { // PenBrush or Gomme
                 SetOutilToMarqueur();
             }
+            outilButton.GetComponent<Image>().color = Color.blue;
+            bucketButton.GetComponent<Image>().color = Color.blue;
+            crayonButton.GetComponent<Image>().color = Color.blue;
+            marqueurButton.GetComponent<Image>().color = Color.blue;
+
+
+
+
                 
         }
         public void changeColorToRed()
@@ -225,6 +266,12 @@ using System.Collections.Generic;
             } else { // PenBrush or Gomme
                 SetOutilToMarqueur();
             }
+            outilButton.GetComponent<Image>().color = Color.red;
+            
+            bucketButton.GetComponent<Image>().color = Color.red;
+            crayonButton.GetComponent<Image>().color = Color.red;
+            marqueurButton.GetComponent<Image>().color = Color.red;
+
         }
         public void changeColorToYellow()
         {
@@ -236,6 +283,12 @@ using System.Collections.Generic;
             } else { // PenBrush or Gomme
                 SetOutilToMarqueur();
             }
+            outilButton.GetComponent<Image>().color = Color.yellow;
+            
+            bucketButton.GetComponent<Image>().color = Color.yellow;
+            crayonButton.GetComponent<Image>().color = Color.yellow;
+            marqueurButton.GetComponent<Image>().color = Color.yellow;
+
         }
         public void changeColorToOrange()
         {
@@ -247,6 +300,12 @@ using System.Collections.Generic;
             } else { // PenBrush or Gomme
                 SetOutilToMarqueur();
             }
+            outilButton.GetComponent<Image>().color = new Color(249f/255,101f/255,21f/255,1);
+            
+            bucketButton.GetComponent<Image>().color = new Color(249f/255,101f/255,21f/255,1);
+            crayonButton.GetComponent<Image>().color = new Color(249f/255,101f/255,21f/255,1);
+            marqueurButton.GetComponent<Image>().color = new Color(249f/255,101f/255,21f/255,1);
+
         }
         public void changeColorToVert()
         {
@@ -258,6 +317,10 @@ using System.Collections.Generic;
             } else { // PenBrush or Gomme
                 SetOutilToMarqueur();
             }
+            outilButton.GetComponent<Image>().color =Color.green;
+            bucketButton.GetComponent<Image>().color = Color.green;
+            crayonButton.GetComponent<Image>().color = Color.green;
+            marqueurButton.GetComponent<Image>().color = Color.green;
         }
         public void changeColorToViolet()
         {
@@ -269,6 +332,11 @@ using System.Collections.Generic;
             } else { // PenBrush or Gomme
                 SetOutilToMarqueur();
             }
+            outilButton.GetComponent<Image>().color =new Color(199f/255,36f/255,177f/255,1);
+            bucketButton.GetComponent<Image>().color = new Color(199f/255,36f/255,177f/255,1);
+            crayonButton.GetComponent<Image>().color = new Color(199f/255,36f/255,177f/255,1);
+            marqueurButton.GetComponent<Image>().color = new Color(199f/255,36f/255,177f/255,1);
+
         }
         public void changeColorToNoir()
         {
@@ -280,6 +348,11 @@ using System.Collections.Generic;
             } else { // PenBrush or Gomme
                 SetOutilToMarqueur();
             }
+            outilButton.GetComponent<Image>().color = Color.black;
+            bucketButton.GetComponent<Image>().color = Color.black;
+            crayonButton.GetComponent<Image>().color = Color.black;
+            marqueurButton.GetComponent<Image>().color = Color.black;
+
         }
         public void changeColorToCyan()
         {
@@ -291,6 +364,11 @@ using System.Collections.Generic;
             } else { // PenBrush or Gomme
                 SetOutilToMarqueur();
             }
+            outilButton.GetComponent<Image>().color = Color.cyan;
+            bucketButton.GetComponent<Image>().color = Color.cyan;
+            crayonButton.GetComponent<Image>().color = Color.cyan;
+            marqueurButton.GetComponent<Image>().color = Color.cyan;
+
         }
 //////////////////////////////////////////////////////////////////////////////
 
@@ -614,7 +692,8 @@ using System.Collections.Generic;
             Path=Application.persistentDataPath + "/../test.png";
             drawable_sprite = this.GetComponent<SpriteRenderer>().sprite;
             drawable_texture = drawable_sprite.texture;
-
+            changeColorToNoir();
+        
             // Initialize clean pixels to use
             clean_colours_array = new Color[(int)drawable_sprite.rect.width * (int)drawable_sprite.rect.height];
             for (int x = 0; x < clean_colours_array.Length; x++)
