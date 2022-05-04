@@ -12,6 +12,7 @@ public class ImageComparison : MonoBehaviour
 {
 
     //public GameObject imageConteneur; 
+    public GameObject scoreCanvas;
     
 
     // Main 
@@ -21,7 +22,16 @@ public class ImageComparison : MonoBehaviour
         
     }
 
-    public void comparImage(){
+    public void test(){
+        
+        StartCoroutine(comparImage());
+
+    }
+
+    IEnumerator comparImage(){
+
+        scoreCanvas.SetActive(true);
+        yield return null;
         
         //Load the drawing 
         Texture2D tex =GameObject.Find("Toile").GetComponent<SpriteRenderer>().sprite.texture;
