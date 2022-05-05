@@ -1,10 +1,11 @@
 {
    "path": "Monde2/Exo4/",
-   "title": "Un carré",
-   "description": "Dessinez un carré",
-   "nbetape": 1,
+   "title": "Un cube transparent",
+   "description": "Dessinez le reste des arrêtes d'un cube!'",
+   "nbetape": 2,
   "etapes": [
-    "dessinez un carré"
+    "analyser la forme de l objet",
+    "tracer les restes des arrêtes du cube"
   ],
    "outils": "1000",
    "couleurs":"10000000"

@@ -1,10 +1,11 @@
 {
    "path": "Monde2/Exo5/",
-   "title": "Un rond",
-   "description": "Dessinez un rond",
-   "nbetape": 1,
+   "title": "Un prisme transparent",
+   "description": "Dessinez le reste des arrêtes du prisme!'",
+   "nbetape": 2,
   "etapes": [
-    "dessinez un rond"
+    "analyser la forme de l objet",
+    "tracer les restes des arrêtes"
   ],
    "outils": "1000",
    "couleurs":"10000000"

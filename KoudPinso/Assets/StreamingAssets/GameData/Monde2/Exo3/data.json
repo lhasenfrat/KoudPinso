@@ -1,11 +1,10 @@
 {
    "path": "Monde2/Exo3/",
-   "title": "Un prisme hexagone",
-   "description": "Dessinez le reste des faces du prisme! Attention il n'est plus transparent'",
-   "nbetape": 2,
+   "title": "L'étoile'",
+   "description": "Dessinez l'étoile'",
+   "nbetape": 1,
   "etapes": [
-    "analyser la forme de l objet",
-    "tracer les restes des arrÃªtes"
+    "dessinez un étoile"
   ],
    "outils": "1000",
    "couleurs":"10000000"
