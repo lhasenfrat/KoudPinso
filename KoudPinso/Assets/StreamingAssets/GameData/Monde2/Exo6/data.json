@@ -1,0 +1,11 @@
+{
+   "path": "Monde2/Exo6/",
+   "title": "L'étoile'",
+   "description": "Dessinez l'étoile'",
+   "nbetape": 1,
+  "etapes": [
+    "dessinez un étoile"
+  ],
+   "outils": "1000",
+   "couleurs":"10000000"
+}
