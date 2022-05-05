@@ -10,7 +10,8 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Stupid Meeting
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1a4780c6c073d67499e7c443b6e7cb06, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
