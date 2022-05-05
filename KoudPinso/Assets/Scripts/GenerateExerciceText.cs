@@ -9,6 +9,8 @@ public class GenerateExerciceText : MonoBehaviour
 	public GameObject mypanel;
 	public GameObject Base;
 
+	public GameObject ExempleExo1_1;
+
     public static ExerciceText ReadFromFile(string filePath)
 	{
 		// If the file doesn't exist then just return the default object.
@@ -42,6 +44,13 @@ public class GenerateExerciceText : MonoBehaviour
         exotext.text = etext.title +"\n" + etext.description+ "\n"+etext.nbetape;
 		for(int i=0;i<etext.nbetape;i++){
 			exotext.text+="\n"+etext.etapes[i];
+		}
+		Debug.Log(etext.path);
+		if (etext.path=="Monde1/Exo1/"){
+			ExempleExo1_1.SetActive(true);
+
+		}else{
+			ExempleExo1_1.SetActive(false);
 		}
 		mypanel.GetComponent<AffichageText>().ChangeText();
 		Texture2D skin;
