@@ -30,7 +30,7 @@ public class ActionsPetitsMenus : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
            
             myGO.SetActive(false);
-            toile.GetComponent<Drawable>().CoroutineAllowDrawing();
+            toile.GetComponent<Drawable>().setAllowedDrawing(true);
 
         }
  
