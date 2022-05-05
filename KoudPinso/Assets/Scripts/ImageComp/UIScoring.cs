@@ -27,7 +27,7 @@ public class UIScoring : MonoBehaviour
     public void ClosePanel()
     {   
         panel.SetActive(false);
-        //toile.GetComponent<Drawable>().setAllowedDrawing(true);
+        toile.GetComponent<Drawable>().setAllowedDrawing(true);
     }
 
     public void OpenPanel()
