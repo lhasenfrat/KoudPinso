@@ -37,6 +37,8 @@ public class UIScoring : MonoBehaviour
         toile = GameObject.Find("Toile");
         panel.SetActive(true);
         bar = GameObject.Find("ProgressBar");
+        GameObject.Find("TextScore").GetComponent<Text>().text="";
+        GameObject.Find("TextEtatScoring").GetComponent<Text>().text="Calcul du score en cours...";
         bar.GetComponent<Slider>().value=0;
         toile.GetComponent<Drawable>().setAllowedDrawing(false);
     }
