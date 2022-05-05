@@ -1,10 +1,10 @@
 {
    "path": "Monde2/Exo3/",
-   "title": "L'étoile'",
-   "description": "Dessinez l'étoile'",
+   "title": "L'Ã©toile'",
+   "description": "Dessinez l'Ã©toile'",
    "nbetape": 1,
   "etapes": [
-    "dessinez un étoile"
+    "dessinez un Ã©toile"
   ],
    "outils": "1000",
    "couleurs":"10000000"
