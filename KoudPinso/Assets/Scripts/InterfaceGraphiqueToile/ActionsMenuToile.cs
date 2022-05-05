@@ -42,5 +42,15 @@ public class ActionsMenuToile : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         Debug.Log("incontext false par bouton");
         inContext = false;
+        
+    }
+
+    public void setInContextFalseMenu()
+    {
+        Debug.Log("incontext false par bouton");
+        inContext = false;
+        toile.GetComponent<Drawable>().setAllowedDrawing(!inContext);
+
+        
     }
 }
