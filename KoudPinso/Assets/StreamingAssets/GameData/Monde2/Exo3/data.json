@@ -1,7 +1,7 @@
 {
-   "path": "Monde2/Exo2/",
-   "title": "Un prisme transparent",
-   "description": "Dessinez le reste des arrêtes du prisme!'",
+   "path": "Monde2/Exo3/",
+   "title": "Un prisme hexagone",
+   "description": "Dessinez le reste des faces du prisme! Attention il n'est plus transparent'",
    "nbetape": 2,
   "etapes": [
     "analyser la forme de l objet",
