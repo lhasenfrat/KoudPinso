@@ -1,10 +1,9 @@
 {
    "path": "Monde1/Exo1/",
    "title": "Les ombres portées",
-   "description": "Dans cet exercice tu vas apprendre à dessiner les ombres portées ! Trace l'ombre que fait le soleil sur le cube en suivant l'exemple ! ",
-   "nbetape": 3,
+   "description": "Dans ce premier niveau tu vas apprendre à dessiner les ombres portées en recopiant l'exemple ! Trace l'ombre que fait le soleil sur le cube comme dans cette image ! ",
+   "nbetape": 2,
    "etapes":[     
-	   "Trace les repères ! ",
 		"Trace les contours de l'ombre ! ",
 		"Colorie l'ombre ! "
    ],
