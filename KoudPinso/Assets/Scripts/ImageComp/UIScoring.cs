@@ -27,7 +27,7 @@ public class UIScoring : MonoBehaviour
     public void ClosePanel()
     {   
         panel.SetActive(false);
-        toile.GetComponent<Drawable>().setAllowedDrawing(true);
+        //toile.GetComponent<Drawable>().setAllowedDrawing(true);
     }
 
     public void OpenPanel()
@@ -40,12 +40,16 @@ public class UIScoring : MonoBehaviour
         GameObject.Find("TextScore").GetComponent<Text>().text="";
         GameObject.Find("TextEtatScoring").GetComponent<Text>().text="Calcul du score en cours...";
         bar.GetComponent<Slider>().value=0;
-        toile.GetComponent<Drawable>().setAllowedDrawing(false);
+       // toile.GetComponent<Drawable>().setAllowedDrawing(false);
     }
 
     public void updateScore(float score){
         bar.GetComponent<Slider>().DOValue(score,(float)2);
         GameObject.Find("TextScore").GetComponent<Text>().text=((int)Round(score*100)).ToString()+" sur 100";
         GameObject.Find("TextEtatScoring").GetComponent<Text>().text="Votre score est:";
+    }
+
+    public void setDrawableFalse(){
+        toile.GetComponent<Drawable>().setAllowedDrawing(false);
     }
 }

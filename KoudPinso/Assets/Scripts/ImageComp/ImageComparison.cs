@@ -80,7 +80,7 @@ public class ImageComparison : MonoBehaviour
             scoreFinal=0;
         }
         Debug.Log(scoreFinal);
-
+        UIScore.GetComponent<UIScoring>().setDrawableFalse();
         UIScore.GetComponent<UIScoring>().updateScore((float)scoreFinal);
         
         //Show the edge-detection image on the GameComponent
