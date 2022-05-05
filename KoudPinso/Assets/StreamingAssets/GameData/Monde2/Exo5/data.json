@@ -1,0 +1,11 @@
+{
+   "path": "Monde2/Exo5/",
+   "title": "Un rond",
+   "description": "Dessinez un rond",
+   "nbetape": 1,
+  "etapes": [
+    "dessinez un rond"
+  ],
+   "outils": "1000",
+   "couleurs":"10000000"
+}

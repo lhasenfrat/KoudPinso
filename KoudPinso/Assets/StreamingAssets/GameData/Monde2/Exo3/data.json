@@ -1,0 +1,12 @@
+{
+   "path": "Monde2/Exo3/",
+   "title": "Un prisme hexagone",
+   "description": "Dessinez le reste des faces du prisme! Attention il n'est plus transparent'",
+   "nbetape": 2,
+  "etapes": [
+    "analyser la forme de l objet",
+    "tracer les restes des arrêtes"
+  ],
+   "outils": "1000",
+   "couleurs":"10000000"
+}

@@ -745,7 +745,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 233796687}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 103521943}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: OpenExercice
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Monde2/Exo2/
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &233796687
 MonoBehaviour:
   m_ObjectHideFlags: 0
