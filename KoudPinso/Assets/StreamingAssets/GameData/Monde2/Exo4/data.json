@@ -1,7 +1,7 @@
 {
    "path": "Monde2/Exo4/",
    "title": "Les arrêtes du cube",
-   "description": "Dessinez le reste des arrêtes d'un cube!'",
+   "description": "Dessinez le reste des arrêtes d'un cube!",
    "nbetape": 2,
   "etapes": [
     "analyser la forme de l'objet",
