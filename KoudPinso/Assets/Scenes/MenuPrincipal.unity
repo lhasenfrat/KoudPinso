@@ -859,6 +859,7 @@ GameObject:
   - component: {fileID: 979706605}
   - component: {fileID: 979706604}
   - component: {fileID: 979706603}
+  - component: {fileID: 979706607}
   m_Layer: 5
   m_Name: Button_Retour
   m_TagString: Untagged
@@ -966,6 +967,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 979706607}
+        m_TargetAssemblyTypeName: PlayAudio, Assembly-CSharp
+        m_MethodName: playMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &979706605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1004,6 +1017,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979706601}
   m_CullTransparentMesh: 1
+--- !u!114 &979706607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979706601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57cf3e628aaba6d43998879b71a23d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1088555645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1631,7 @@ GameObject:
   - component: {fileID: 1760048701}
   - component: {fileID: 1760048700}
   - component: {fileID: 1760048699}
+  - component: {fileID: 1760048702}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1678,6 +1704,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760048702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760048698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c51218739f14744aafbe51aaf811ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1960443641
 GameObject:
   m_ObjectHideFlags: 0
