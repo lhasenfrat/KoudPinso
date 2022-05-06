@@ -1,11 +1,11 @@
 {
    "path": "Monde2/Exo6/",
-   "title": "Un prisme hexagone",
-   "description": "Dessinez le reste des faces du prisme! Attention il n'est plus transparent'",
+   "title": "Un prisme hexagonal",
+   "description": "Dessinez le reste des faces du prisme! Attention il n'est plus transparent.",
    "nbetape": 2,
   "etapes": [
-    "analyser la forme de l objet",
-    "tracer les restes des arrêtes"
+    "analyser la forme de l'objet",
+    "tracer les faces du prisme hexagonal"
   ],
    "outils": "1000",
    "couleurs":"10000000"

@@ -4,7 +4,7 @@
    "description": "Dessinez l'étoile'",
    "nbetape": 1,
   "etapes": [
-    "dessinez un étoile"
+    "dessinez les branches manquantes de l'étoile"
   ],
    "outils": "1000",
    "couleurs":"10000000"

@@ -1,10 +1,9 @@
 {
    "path": "Monde1/Exo2/",
-   "title": "Les ombres portées à l'autre côté'",
-   "description": "ajoutons l'ombre de ce pyramide'",
-   "nbetape": 3,
+   "title": "Les ombres en fonction de la lumière",
+   "description": "ajoutons les ombres que le soleil fait sur cet objet.",
+   "nbetape": 2,
    "etapes":[     
-	  "tracer les reperes",
 		"tracer le contour de l'ombre",
 		"colorier l'ombre"
    ],

@@ -1,12 +1,12 @@
 {
    "path": "Monde1/Exo3/",
-   "title": "Le soleil derrière l'objet!",
-   "description": "Les ombres commencent à être complexe",
+   "title": "Forme et angle de lumière complexes",
+   "description": "Cette fois-ci vous devez dessiner les ombres d'une pyramide dont la source de lumière est derrière l'objet.",
    "nbetape": 3,
    "etapes":[     
-	   "tracer les reperes",
-		"tracer le contour de l'ombre",
-		"colorier l'ombre"
+	   "tracer les ombres sur l'objet",
+		"tracer les ombres au sol",
+		"colorier les ombres"
    ],
    "outils": "1000",
    "couleurs":"10000000"

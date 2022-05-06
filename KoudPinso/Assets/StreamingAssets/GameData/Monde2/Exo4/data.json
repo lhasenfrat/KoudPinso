@@ -4,7 +4,7 @@
    "description": "Dessinez le reste des arrêtes d'un cube!'",
    "nbetape": 2,
   "etapes": [
-    "analyser la forme de l objet",
+    "analyser la forme de l'objet",
     "tracer les restes des arrêtes du cube"
   ],
    "outils": "1000",
