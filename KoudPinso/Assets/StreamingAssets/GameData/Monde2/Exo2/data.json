@@ -2,9 +2,10 @@
    "path": "Monde2/Exo2/",
    "title": "Un rond",
    "description": "Dessinez un rond",
-   "nbetape": 1,
+   "nbetape": 2,
   "etapes": [
-    "dessinez un rond"
+    "dessinez un rond",
+    "remplir le rond"
   ],
    "outils": "1000",
    "couleurs":"10000000"

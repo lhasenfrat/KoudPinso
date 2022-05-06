@@ -2,9 +2,10 @@
    "path": "Monde2/Exo1/",
    "title": "Un carré",
    "description": "Dessinez un carré",
-   "nbetape": 1,
+   "nbetape": 2,
   "etapes": [
-    "dessinez un carré"
+    "dessinez un carré",
+    "remplir le carré"
   ],
    "outils": "1000",
    "couleurs":"10000000"
